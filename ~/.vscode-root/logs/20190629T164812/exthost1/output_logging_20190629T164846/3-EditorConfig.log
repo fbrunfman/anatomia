@@ -1,0 +1,106 @@
+Initializing document watcher...
+Detected change in configuration: {}
+anatomia/tests/CreatesApplication.php: {"insertSpaces":true,"tabSize":4}
+anatomia/database/factories/UserFactory.php: {"insertSpaces":true,"tabSize":4}
+No more open editors.
+No more open editors.
+No more open editors.
+anatomia/.env: {"insertSpaces":true,"tabSize":4}
+anatomia/.env: Using EditorConfig core...
+.env: setEndOfLine(LF)
+.env: editor.action.trimTrailingWhitespace
+anatomia/.env: Using EditorConfig core...
+.env: setEndOfLine(LF)
+.env: editor.action.trimTrailingWhitespace
+anatomia/.env: Using EditorConfig core...
+.env: setEndOfLine(LF)
+.env: editor.action.trimTrailingWhitespace
+anatomia/.env: Using EditorConfig core...
+.env: setEndOfLine(LF)
+.env: editor.action.trimTrailingWhitespace
+anatomia/.env: {"insertSpaces":true,"tabSize":4}
+anatomia/.env: {"insertSpaces":true,"tabSize":4}
+anatomia/database/migrations/2019_06_29_203229_create_lessons_table.php: {"insertSpaces":true,"tabSize":4}
+anatomia/database/migrations/2014_10_12_000000_create_users_table.php: {"insertSpaces":true,"tabSize":4}
+anatomia/database/migrations/2019_06_29_203229_create_lessons_table.php: {"insertSpaces":true,"tabSize":4}
+anatomia/database/migrations/2019_06_29_203229_create_lessons_table.php: {"insertSpaces":true,"tabSize":4}
+anatomia/database/migrations/2019_06_29_203229_create_lessons_table.php: Using EditorConfig core...
+database/migrations/2019_06_29_203229_create_lessons_table.php: setEndOfLine(LF)
+database/migrations/2019_06_29_203229_create_lessons_table.php: editor.action.trimTrailingWhitespace
+anatomia/database/migrations/2019_06_29_203229_create_lessons_table.php: Using EditorConfig core...
+database/migrations/2019_06_29_203229_create_lessons_table.php: setEndOfLine(LF)
+database/migrations/2019_06_29_203229_create_lessons_table.php: editor.action.trimTrailingWhitespace
+anatomia/database/migrations/2019_06_29_203229_create_lessons_table.php: Using EditorConfig core...
+database/migrations/2019_06_29_203229_create_lessons_table.php: setEndOfLine(LF)
+database/migrations/2019_06_29_203229_create_lessons_table.php: editor.action.trimTrailingWhitespace
+anatomia/database/migrations/2019_06_29_203229_create_lessons_table.php: {"insertSpaces":true,"tabSize":4}
+anatomia/database/migrations/2019_06_29_203229_create_lessons_table.php: {"insertSpaces":true,"tabSize":4}
+anatomia/database/migrations/2019_06_29_203229_create_lessons_table.php: Using EditorConfig core...
+database/migrations/2019_06_29_203229_create_lessons_table.php: setEndOfLine(LF)
+database/migrations/2019_06_29_203229_create_lessons_table.php: editor.action.trimTrailingWhitespace
+anatomia/database/migrations/2019_06_29_203229_create_lessons_table.php: Using EditorConfig core...
+database/migrations/2019_06_29_203229_create_lessons_table.php: setEndOfLine(LF)
+database/migrations/2019_06_29_203229_create_lessons_table.php: editor.action.trimTrailingWhitespace
+anatomia/database/migrations/2019_06_29_203229_create_lessons_table.php: Using EditorConfig core...
+database/migrations/2019_06_29_203229_create_lessons_table.php: setEndOfLine(LF)
+database/migrations/2019_06_29_203229_create_lessons_table.php: editor.action.trimTrailingWhitespace
+anatomia/database/migrations/2019_06_29_203229_create_lessons_table.php: Using EditorConfig core...
+database/migrations/2019_06_29_203229_create_lessons_table.php: setEndOfLine(LF)
+database/migrations/2019_06_29_203229_create_lessons_table.php: editor.action.trimTrailingWhitespace
+anatomia/database/migrations/2019_06_29_203229_create_lessons_table.php: {"insertSpaces":true,"tabSize":4}
+anatomia/database/migrations/2019_06_29_203229_create_lessons_table.php: {"insertSpaces":true,"tabSize":4}
+anatomia/database/migrations/2019_06_29_203229_create_lessons_table.php: {"insertSpaces":true,"tabSize":4}
+anatomia/database/migrations/2019_06_29_203541_create_chapters_table.php: {"insertSpaces":true,"tabSize":4}
+anatomia/database/migrations/2019_06_29_203541_create_chapters_table.php: Using EditorConfig core...
+database/migrations/2019_06_29_203541_create_chapters_table.php: setEndOfLine(LF)
+database/migrations/2019_06_29_203541_create_chapters_table.php: editor.action.trimTrailingWhitespace
+anatomia/database/migrations/2019_06_29_203541_create_chapters_table.php: Using EditorConfig core...
+database/migrations/2019_06_29_203541_create_chapters_table.php: setEndOfLine(LF)
+database/migrations/2019_06_29_203541_create_chapters_table.php: editor.action.trimTrailingWhitespace
+anatomia/database/migrations/2019_06_29_203541_create_chapters_table.php: Using EditorConfig core...
+database/migrations/2019_06_29_203541_create_chapters_table.php: setEndOfLine(LF)
+database/migrations/2019_06_29_203541_create_chapters_table.php: editor.action.trimTrailingWhitespace
+anatomia/database/migrations/2019_06_29_203541_create_chapters_table.php: Using EditorConfig core...
+database/migrations/2019_06_29_203541_create_chapters_table.php: setEndOfLine(LF)
+database/migrations/2019_06_29_203541_create_chapters_table.php: editor.action.trimTrailingWhitespace
+anatomia/database/migrations/2019_06_29_203229_create_lessons_table.php: {"insertSpaces":true,"tabSize":4}
+anatomia/database/migrations/2019_06_29_203541_create_chapters_table.php: {"insertSpaces":true,"tabSize":4}
+anatomia/database/migrations/2019_06_29_203541_create_chapters_table.php: Using EditorConfig core...
+database/migrations/2019_06_29_203541_create_chapters_table.php: setEndOfLine(LF)
+database/migrations/2019_06_29_203541_create_chapters_table.php: editor.action.trimTrailingWhitespace
+anatomia/database/migrations/2019_06_29_203541_create_chapters_table.php: {"insertSpaces":true,"tabSize":4}
+anatomia/app/chapter.php: {"insertSpaces":true,"tabSize":4}
+anatomia/app/lesson.php: {"insertSpaces":true,"tabSize":4}
+anatomia/app/chapter.php: {"insertSpaces":true,"tabSize":4}
+anatomia/app/lesson.php: {"insertSpaces":true,"tabSize":4}
+anatomia/app/lesson.php: {"insertSpaces":true,"tabSize":4}
+anatomia/app/chapter.php: {"insertSpaces":true,"tabSize":4}
+anatomia/app/lesson.php: {"insertSpaces":true,"tabSize":4}
+anatomia/app/chapter.php: {"insertSpaces":true,"tabSize":4}
+anatomia/app/lesson.php: {"insertSpaces":true,"tabSize":4}
+anatomia/app/chapter.php: {"insertSpaces":true,"tabSize":4}
+anatomia/app/chapter.php: {"insertSpaces":true,"tabSize":4}
+anatomia/database/migrations/2014_10_12_000000_create_users_table.php: {"insertSpaces":true,"tabSize":4}
+anatomia/database/migrations/2019_06_29_203541_create_chapters_table.php: {"insertSpaces":true,"tabSize":4}
+anatomia/database/migrations/2019_06_29_203541_create_chapters_table.php: {"insertSpaces":true,"tabSize":4}
+anatomia/database/migrations/2019_06_29_203541_create_chapters_table.php: {"insertSpaces":true,"tabSize":4}
+anatomia/database/migrations/2019_06_29_203541_create_chapters_table.php: Using EditorConfig core...
+database/migrations/2019_06_29_203541_create_chapters_table.php: setEndOfLine(LF)
+database/migrations/2019_06_29_203541_create_chapters_table.php: editor.action.trimTrailingWhitespace
+anatomia/database/migrations/2019_06_29_203541_create_chapters_table.php: Using EditorConfig core...
+database/migrations/2019_06_29_203541_create_chapters_table.php: setEndOfLine(LF)
+database/migrations/2019_06_29_203541_create_chapters_table.php: editor.action.trimTrailingWhitespace
+anatomia/database/migrations/2019_06_29_203541_create_chapters_table.php: Using EditorConfig core...
+database/migrations/2019_06_29_203541_create_chapters_table.php: setEndOfLine(LF)
+database/migrations/2019_06_29_203541_create_chapters_table.php: editor.action.trimTrailingWhitespace
+anatomia/database/migrations/2019_06_29_203541_create_chapters_table.php: Using EditorConfig core...
+database/migrations/2019_06_29_203541_create_chapters_table.php: setEndOfLine(LF)
+database/migrations/2019_06_29_203541_create_chapters_table.php: editor.action.trimTrailingWhitespace
+anatomia/database/migrations/2019_06_29_203541_create_chapters_table.php: Using EditorConfig core...
+database/migrations/2019_06_29_203541_create_chapters_table.php: setEndOfLine(LF)
+database/migrations/2019_06_29_203541_create_chapters_table.php: editor.action.trimTrailingWhitespace
+anatomia/database/migrations/2019_06_29_203541_create_chapters_table.php: Using EditorConfig core...
+database/migrations/2019_06_29_203541_create_chapters_table.php: setEndOfLine(LF)
+database/migrations/2019_06_29_203541_create_chapters_table.php: editor.action.trimTrailingWhitespace
+anatomia/database/migrations/2019_06_29_203541_create_chapters_table.php: {"insertSpaces":true,"tabSize":4}
+anatomia/database/migrations/2019_06_29_203541_create_chapters_table.php: {"insertSpaces":true,"tabSize":4}

@@ -1,0 +1,32 @@
+file:///home/federico/proyectos/anatomia/database/migrations/2019_06_29_203229_create_lessons_table.php {"mtime":1561840482033,"size":597,"etag":"33fkqqlbsj8","orphaned":false}
+<?php
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class CreateLessonsTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('lessons', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('name');
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('lessons');
+    }
+}

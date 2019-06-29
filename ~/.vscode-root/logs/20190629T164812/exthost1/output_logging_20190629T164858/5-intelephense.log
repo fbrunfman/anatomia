@@ -1,0 +1,15 @@
+[Info  - 4:48:58 PM] Initialising intelephense 1.1.1
+[Info  - 4:48:58 PM] Initialised in 11 ms
+[Info  - 4:48:58 PM] Indexing started.
+[Warn  - 4:49:00 PM] file:///home/federico/proyectos/anatomia/vendor/fzaninotto/faker/src/Faker/Provider/nl_BE/Text.php is over the maximum file size of 1000000 bytes.
+[Info  - 4:49:12 PM] Indexing ended. 4734 files indexed in 13s.
+[Info  - 4:49:12 PM] Writing state to /home/federico/proyectos/anatomia/~/.vscode-root/User/workspaceStorage/7b21f3ee41a989ae720bb47abd5a9efc/bmewburn.vscode-intelephense-client/1bb99855.
+[Info  - 4:49:13 PM] Wrote state in 0.9s.
+[Info  - 5:32:29 PM] Indexing started.
+[Info  - 5:32:29 PM] Indexing ended. 2 files indexed in 0s.
+[Info  - 5:32:30 PM] Indexing started.
+[Info  - 5:32:31 PM] Indexing ended. 12 files indexed in 0s.
+[Info  - 5:35:41 PM] Indexing started.
+[Info  - 5:35:41 PM] Indexing ended. 2 files indexed in 0s.
+[Info  - 5:35:42 PM] Indexing started.
+[Info  - 5:35:43 PM] Indexing ended. 12 files indexed in 0s.

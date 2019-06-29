@@ -1,0 +1,64 @@
+[2019-06-29 16:48:15.293] [exthost] [info] extension host started
+[2019-06-29 16:48:15.335] [exthost] [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch {"startup":true,"activationEvent":"*"}
+[2019-06-29 16:48:15.335] [exthost] [info] ExtensionService#loadCommonJSModule /usr/share/code/resources/app/extensions/debug-auto-launch/dist/extension
+[2019-06-29 16:48:15.338] [exthost] [info] ExtensionService#_doActivateExtension vscode.emmet {"startup":true,"activationEvent":"*"}
+[2019-06-29 16:48:15.338] [exthost] [info] ExtensionService#loadCommonJSModule /usr/share/code/resources/app/extensions/emmet/dist/extension
+[2019-06-29 16:48:15.363] [exthost] [info] ExtensionService#_doActivateExtension vscode.git {"startup":true,"activationEvent":"*"}
+[2019-06-29 16:48:15.363] [exthost] [info] ExtensionService#loadCommonJSModule /usr/share/code/resources/app/extensions/git/dist/main
+[2019-06-29 16:48:15.492] [exthost] [info] ExtensionService#_doActivateExtension vscode.merge-conflict {"startup":true,"activationEvent":"*"}
+[2019-06-29 16:48:15.492] [exthost] [info] ExtensionService#loadCommonJSModule /usr/share/code/resources/app/extensions/merge-conflict/dist/extension
+[2019-06-29 16:48:15.499] [exthost] [info] ExtensionService#_doActivateExtension CoenraadS.bracket-pair-colorizer-2 {"startup":true,"activationEvent":"*"}
+[2019-06-29 16:48:15.499] [exthost] [info] ExtensionService#loadCommonJSModule /home/federico/.vscode/extensions/coenraads.bracket-pair-colorizer-2-0.0.28/out/src/extension
+[2019-06-29 16:48:15.528] [exthost] [info] ExtensionService#_doActivateExtension eamodio.gitlens {"startup":true,"activationEvent":"*"}
+[2019-06-29 16:48:15.528] [exthost] [info] ExtensionService#loadCommonJSModule /home/federico/.vscode/extensions/eamodio.gitlens-9.8.2/dist/extension
+[2019-06-29 16:48:15.688] [exthost] [info] ExtensionService#_doActivateExtension EditorConfig.EditorConfig {"startup":true,"activationEvent":"*"}
+[2019-06-29 16:48:15.688] [exthost] [info] ExtensionService#loadCommonJSModule /home/federico/.vscode/extensions/editorconfig.editorconfig-0.13.0/out/src/editorConfigMain
+[2019-06-29 16:48:15.718] [exthost] [info] ExtensionService#_doActivateExtension Equinusocio.vsc-material-theme {"startup":true,"activationEvent":"*"}
+[2019-06-29 16:48:15.718] [exthost] [info] ExtensionService#loadCommonJSModule /home/federico/.vscode/extensions/equinusocio.vsc-material-theme-29.1.0/out/src/material.theme.config
+[2019-06-29 16:48:15.733] [exthost] [info] ExtensionService#_doActivateExtension monokai.theme-monokai-pro-vscode {"startup":true,"activationEvent":"*"}
+[2019-06-29 16:48:15.733] [exthost] [info] ExtensionService#loadCommonJSModule /home/federico/.vscode/extensions/monokai.theme-monokai-pro-vscode-1.1.13/js/main
+[2019-06-29 16:48:15.740] [exthost] [info] ExtensionService#_doActivateExtension PKief.material-icon-theme {"startup":true,"activationEvent":"*"}
+[2019-06-29 16:48:15.740] [exthost] [info] ExtensionService#loadCommonJSModule /home/federico/.vscode/extensions/pkief.material-icon-theme-3.8.0/dist/extension
+[2019-06-29 16:48:15.769] [exthost] [info] ExtensionService#_doActivateExtension ritwickdey.LiveServer {"startup":true,"activationEvent":"*"}
+[2019-06-29 16:48:15.769] [exthost] [info] ExtensionService#loadCommonJSModule /home/federico/.vscode/extensions/ritwickdey.liveserver-5.6.1/out/src/extension
+[2019-06-29 16:48:16.050] [exthost] [info] ExtensionService#_doActivateExtension WallabyJs.quokka-vscode {"startup":true,"activationEvent":"*"}
+[2019-06-29 16:48:16.050] [exthost] [info] ExtensionService#loadCommonJSModule /home/federico/.vscode/extensions/wallabyjs.quokka-vscode-1.0.232/index
+[2019-06-29 16:48:16.051] [exthost] [info] eager extensions activated
+[2019-06-29 16:48:16.437] [exthost] [info] ExtensionService#_doActivateExtension vscode.html-language-features {"startup":false,"activationEvent":"onLanguage:html"}
+[2019-06-29 16:48:16.437] [exthost] [info] ExtensionService#loadCommonJSModule /usr/share/code/resources/app/extensions/html-language-features/client/dist/htmlMain
+[2019-06-29 16:48:16.530] [exthost] [info] ExtensionService#_doActivateExtension ecmel.vscode-html-css {"startup":false,"activationEvent":"onLanguage:html"}
+[2019-06-29 16:48:16.530] [exthost] [info] ExtensionService#loadCommonJSModule /home/federico/.vscode/extensions/ecmel.vscode-html-css-0.2.0/out/src/extension
+[2019-06-29 16:48:45.548] [exthost] [info] extension host started
+[2019-06-29 16:48:45.576] [exthost] [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch {"startup":true,"activationEvent":"*"}
+[2019-06-29 16:48:45.577] [exthost] [info] ExtensionService#loadCommonJSModule /usr/share/code/resources/app/extensions/debug-auto-launch/dist/extension
+[2019-06-29 16:48:45.583] [exthost] [info] ExtensionService#_doActivateExtension vscode.emmet {"startup":true,"activationEvent":"*"}
+[2019-06-29 16:48:45.583] [exthost] [info] ExtensionService#loadCommonJSModule /usr/share/code/resources/app/extensions/emmet/dist/extension
+[2019-06-29 16:48:45.606] [exthost] [info] ExtensionService#_doActivateExtension vscode.git {"startup":true,"activationEvent":"*"}
+[2019-06-29 16:48:45.606] [exthost] [info] ExtensionService#loadCommonJSModule /usr/share/code/resources/app/extensions/git/dist/main
+[2019-06-29 16:48:45.754] [exthost] [info] ExtensionService#_doActivateExtension vscode.merge-conflict {"startup":true,"activationEvent":"*"}
+[2019-06-29 16:48:45.754] [exthost] [info] ExtensionService#loadCommonJSModule /usr/share/code/resources/app/extensions/merge-conflict/dist/extension
+[2019-06-29 16:48:45.764] [exthost] [info] ExtensionService#_doActivateExtension CoenraadS.bracket-pair-colorizer-2 {"startup":true,"activationEvent":"*"}
+[2019-06-29 16:48:45.764] [exthost] [info] ExtensionService#loadCommonJSModule /home/federico/.vscode/extensions/coenraads.bracket-pair-colorizer-2-0.0.28/out/src/extension
+[2019-06-29 16:48:45.798] [exthost] [info] ExtensionService#_doActivateExtension eamodio.gitlens {"startup":true,"activationEvent":"*"}
+[2019-06-29 16:48:45.798] [exthost] [info] ExtensionService#loadCommonJSModule /home/federico/.vscode/extensions/eamodio.gitlens-9.8.2/dist/extension
+[2019-06-29 16:48:45.999] [exthost] [info] ExtensionService#_doActivateExtension EditorConfig.EditorConfig {"startup":true,"activationEvent":"*"}
+[2019-06-29 16:48:45.999] [exthost] [info] ExtensionService#loadCommonJSModule /home/federico/.vscode/extensions/editorconfig.editorconfig-0.13.0/out/src/editorConfigMain
+[2019-06-29 16:48:46.033] [exthost] [info] ExtensionService#_doActivateExtension Equinusocio.vsc-material-theme {"startup":true,"activationEvent":"*"}
+[2019-06-29 16:48:46.033] [exthost] [info] ExtensionService#loadCommonJSModule /home/federico/.vscode/extensions/equinusocio.vsc-material-theme-29.1.0/out/src/material.theme.config
+[2019-06-29 16:48:46.047] [exthost] [info] ExtensionService#_doActivateExtension monokai.theme-monokai-pro-vscode {"startup":true,"activationEvent":"*"}
+[2019-06-29 16:48:46.047] [exthost] [info] ExtensionService#loadCommonJSModule /home/federico/.vscode/extensions/monokai.theme-monokai-pro-vscode-1.1.13/js/main
+[2019-06-29 16:48:46.053] [exthost] [info] ExtensionService#_doActivateExtension PKief.material-icon-theme {"startup":true,"activationEvent":"*"}
+[2019-06-29 16:48:46.054] [exthost] [info] ExtensionService#loadCommonJSModule /home/federico/.vscode/extensions/pkief.material-icon-theme-3.8.0/dist/extension
+[2019-06-29 16:48:46.075] [exthost] [info] ExtensionService#_doActivateExtension ritwickdey.LiveServer {"startup":true,"activationEvent":"*"}
+[2019-06-29 16:48:46.075] [exthost] [info] ExtensionService#loadCommonJSModule /home/federico/.vscode/extensions/ritwickdey.liveserver-5.6.1/out/src/extension
+[2019-06-29 16:48:46.566] [exthost] [info] ExtensionService#_doActivateExtension WallabyJs.quokka-vscode {"startup":true,"activationEvent":"*"}
+[2019-06-29 16:48:46.566] [exthost] [info] ExtensionService#loadCommonJSModule /home/federico/.vscode/extensions/wallabyjs.quokka-vscode-1.0.232/index
+[2019-06-29 16:48:47.035] [exthost] [info] ExtensionService#_doActivateExtension ritwickdey.live-sass {"startup":true,"activationEvent":"workspaceContains:**/*.s[ac]ss"}
+[2019-06-29 16:48:47.036] [exthost] [info] ExtensionService#loadCommonJSModule /home/federico/.vscode/extensions/ritwickdey.live-sass-3.0.0/out/src/extension
+[2019-06-29 16:48:48.471] [exthost] [info] eager extensions activated
+[2019-06-29 16:48:57.327] [exthost] [info] ExtensionService#_doActivateExtension vscode.php-language-features {"startup":false,"activationEvent":"onLanguage:php"}
+[2019-06-29 16:48:57.327] [exthost] [info] ExtensionService#loadCommonJSModule /usr/share/code/resources/app/extensions/php-language-features/dist/phpMain
+[2019-06-29 16:48:57.340] [exthost] [info] ExtensionService#_doActivateExtension bmewburn.vscode-intelephense-client {"startup":false,"activationEvent":"onLanguage:php"}
+[2019-06-29 16:48:57.340] [exthost] [info] ExtensionService#loadCommonJSModule /home/federico/.vscode/extensions/bmewburn.vscode-intelephense-client-1.1.1/lib/extension
+[2019-06-29 16:48:57.413] [exthost] [info] ExtensionService#_doActivateExtension ecmel.vscode-html-css {"startup":false,"activationEvent":"onLanguage:php"}
+[2019-06-29 16:48:57.413] [exthost] [info] ExtensionService#loadCommonJSModule /home/federico/.vscode/extensions/ecmel.vscode-html-css-0.2.0/out/src/extension
