@@ -19,6 +19,7 @@ class CreateScreensTable extends Migration
             $table->string('image_url');
             $table->unsignedBigInteger('chapter_id');
             $table->foreign('chapter_id')->references('id')->on('chapters');
+            $table->integer('order');
         });
     }
 

@@ -12,7 +12,7 @@ class Screen extends Model
      * @var array
      */
     protected $fillable = [
-        'text', 'image_url', 'chapter_id'
+        'text', 'image_url', 'chapter_id', 'order'
     ];
 
     public function chapter()

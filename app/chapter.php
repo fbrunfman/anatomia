@@ -22,11 +22,11 @@ class Chapter extends Model
 
     public function screens()
     {
-        return $this->hasMany('App\Screen');
+        return $this->hasMany('App\Screen')->orderBy('order');
     }
 
     public function questions()
     {
-        return $this->hasMany('App\Question');
+        return $this->hasMany('App\Question')->orderBy('order');
     }
 }
