@@ -19,4 +19,14 @@ class Chapter extends Model
     {
         return $this->belongsTo('App\Lesson');
     }
+
+    public function screens()
+    {
+        return $this->hasMany('App\Screen');
+    }
+
+    public function questions()
+    {
+        return $this->hasMany('App\Question');
+    }
 }

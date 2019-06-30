@@ -19,3 +19,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('/lessons', 'LessonController@index');
 Route::get('/chapters', 'ChapterController@index');
+Route::get('/screens', 'ScreenController@index');

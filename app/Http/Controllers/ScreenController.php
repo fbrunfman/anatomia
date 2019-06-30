@@ -1,19 +1,18 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Lesson;
+use App\Screen;
 use Illuminate\Http\Request;
 
-class LessonController extends Controller
+class ScreenController extends Controller
 {
     public function index()
     {
-        $lessons = Lesson::with('chapters.screens', 'chapters.questions.answers')->get();
+        $screens = Screen::all();
 
         return response()->json([
             'code' => 200,
-            'data' => $lessons
+            'data' => $screens
         ]);
     }
 }
