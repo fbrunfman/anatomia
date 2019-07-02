@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Lesson extends Model
+class Course extends Model
 {
     /**
      * The attributes that are mass assignable.
@@ -15,13 +15,8 @@ class Lesson extends Model
         'name'
     ];
 
-    public function chapters()
+    public function lessons()
     {
-        return $this->hasMany('App\Chapter');
-    }
-
-    public function course()
-    {
-        return $this->belongsTo('App\Course');
+        return $this->hasMany('App\Lesson');
     }
 }

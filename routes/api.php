@@ -23,3 +23,5 @@ Route::middleware('auth:api')->post('/logout', 'AuthController@logout');
 Route::get('/lessons', 'LessonController@index');
 Route::get('/chapters', 'ChapterController@index');
 Route::get('/screens', 'ScreenController@index');
+Route::get('/course/{id}', 'CourseController@index');
+
