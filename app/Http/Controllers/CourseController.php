@@ -16,4 +16,18 @@ class CourseController extends Controller
             'data' => $course
         ]);
     }
+
+    public function add(Request $request)
+    {
+        
+        $course = new Course();
+        $course->name = $request->name;
+
+
+        return response()->json([
+    		'message' => 'Curso guardada correctamente',
+            'code' => 200,
+            $course->save()
+    	]);
+    }
 }

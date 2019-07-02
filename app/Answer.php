@@ -11,6 +11,10 @@ class Answer extends Model
      *
      * @var array
      */
+
+    public $timestamps = false;
+    public $updated_at = false;
+    
     protected $fillable = [
         'name', 'is_correct', 'question_id'
     ];

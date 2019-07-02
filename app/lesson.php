@@ -11,6 +11,10 @@ class Lesson extends Model
      *
      * @var array
      */
+    
+    public $timestamps = false;
+    public $updated_at = false;
+
     protected $fillable = [
         'name'
     ];

@@ -11,6 +11,10 @@ class Screen extends Model
      *
      * @var array
      */
+
+    public $timestamps = false;
+    public $updated_at = false;
+    
     protected $fillable = [
         'text', 'image_url', 'chapter_id', 'order'
     ];

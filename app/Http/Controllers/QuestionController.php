@@ -2,24 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use App\Answer;
 use App\Question;
+use App\Chapter;
 
 use Illuminate\Http\Request;
 
-class AnswerController extends Controller
+class QuestionController extends Controller
 {
     public function add(Request $request) 
     {
-        $answer = new Answer();
-        $answer->name = $request->name;
-        $answer->is_correct = $request->is_correct;
-        $answer->question_id = $request->question_id;
+        $question = new Question();
+        $question->name = $request->name;
+        $question->order = $request->order;
+        $question->chapter_id = $request->chapter_id;
 
 
-        $question = Question::find($answer->question_id);
+        $chapter = Chapter::find($question->chapter_id);
 
-        if (!$question) {
+        if (!$chapter) {
             return response()->json([
                 'error' => 'Capitulo no encontrado',
                 'code' => 1
@@ -29,7 +29,7 @@ class AnswerController extends Controller
         return response()->json([
             'message' => 'Pregunta guardada correctamente',
             'code' => 200,
-            $answer->save()
+            $question->save()
         ]);
    }
 }

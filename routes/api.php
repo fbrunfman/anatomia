@@ -25,3 +25,10 @@ Route::get('/chapters', 'ChapterController@index');
 Route::get('/screens', 'ScreenController@index');
 Route::get('/course/{id}', 'CourseController@index');
 
+Route::post('/course/add', 'CourseController@add');
+Route::post('/lesson/add', 'LessonController@add');
+Route::post('/chapter/add', 'ChapterController@add');
+Route::post('/screen/add', 'ScreenController@add');
+Route::post('/question/add', 'QuestionController@add');
+Route::post('/answer/add', 'AnswerController@add');
+
