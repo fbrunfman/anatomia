@@ -9,7 +9,7 @@ class CourseController extends Controller
     public function index($id)
     {   
 
-        $course = Course::where('id', $id)->where('user_id', auth()->user()->id)->with('lessons.chapters.screens', 'lessons.chapters.questions.answers')->get();
+        $course = Course::where('id', $id)->with('lessons.chapters.screens', 'lessons.chapters.questions.answers')->get();
 
         return response()->json([
             'code' => 200,
