@@ -9,7 +9,7 @@ class CourseController extends Controller
     public function index($id)
     {   
 
-        $course = Course::where('id', $id)->with('lessons.chapters.screens', 'lessons.chapters.questions.answers')->get();
+        $course = Course::where('id', $id)->where('user_id', auth()->user()->id)->with('lessons.chapters.screens', 'lessons.chapters.questions.answers')->get();
 
         return response()->json([
             'code' => 200,
@@ -22,10 +22,10 @@ class CourseController extends Controller
         
         $course = new Course();
         $course->name = $request->name;
-
+        $course->user_id = auth()->user()->id;
 
         return response()->json([
-    		'message' => 'Curso guardada correctamente',
+    		'message' => 'Curso guardado correctamente',
             'code' => 200,
             $course->save()
     	]);

@@ -23,7 +23,7 @@ class LessonController extends Controller
         $lesson = new Lesson();
         $lesson->name = $request->name;
         $lesson->course_id = $request->course_id;
-
+        $lesson->user_id = auth()->user()->id;
 
         $course = Course::find($lesson->course_id);
 
