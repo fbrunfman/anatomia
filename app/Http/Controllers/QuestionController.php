@@ -15,7 +15,6 @@ class QuestionController extends Controller
         $question->name = $request->name;
         $question->order = $request->order;
         $question->chapter_id = $request->chapter_id;
-        $question->user_id = auth()->user()->id;
 
         $chapter = Chapter::find($question->chapter_id);
 
@@ -26,10 +25,11 @@ class QuestionController extends Controller
             ]);
         }
 
+        $question->save();
+        
         return response()->json([
             'message' => 'Pregunta guardada correctamente',
             'code' => 200,
-            $question->save()
         ]);
    }
 }

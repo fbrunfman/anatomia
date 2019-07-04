@@ -15,7 +15,6 @@ class AnswerController extends Controller
         $answer->name = $request->name;
         $answer->is_correct = $request->is_correct;
         $answer->question_id = $request->question_id;
-        $answer->user_id = auth()->user()->id;
 
         $question = Question::find($answer->question_id);
 
@@ -25,11 +24,12 @@ class AnswerController extends Controller
                 'code' => 1
             ]);
         }
-
+        
+        $answer->save();
+        
         return response()->json([
             'message' => 'Pregunta guardada correctamente',
             'code' => 200,
-            $answer->save()
         ]);
    }
 }

@@ -18,16 +18,15 @@ class CourseController extends Controller
     }
 
     public function add(Request $request)
-    {
-        
+    {   
         $course = new Course();
         $course->name = $request->name;
-        $course->user_id = auth()->user()->id;
 
+        $course->save();
+        
         return response()->json([
     		'message' => 'Curso guardado correctamente',
             'code' => 200,
-            $course->save()
     	]);
     }
 }
