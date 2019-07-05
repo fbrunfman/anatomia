@@ -24,7 +24,6 @@ class ScreenController extends Controller
         $screen->order = $request->order;
         $screen->image_url = $request->image_url;
         $screen->chapter_id = $request->chapter_id;
-        $screen->user_id = auth()->user()->id;
 
         $chapter = Chapter::find($screen->chapter_id);
 
@@ -34,11 +33,12 @@ class ScreenController extends Controller
                 'code' => 1
             ]);
         }
-
+        
+        $screen->save();
+        
         return response()->json([
             'message' => 'Pantalla guardada correctamente',
             'code' => 200,
-            $screen->save()
         ]);
    }
 }

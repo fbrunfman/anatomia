@@ -24,8 +24,4 @@ class Screen extends Model
         return $this->belongsTo('App\Chapter');
     }
 
-    public function user()
-    {
-        return $this->belongsTo('App\User');
-    }
 }

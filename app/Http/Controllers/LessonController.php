@@ -23,7 +23,6 @@ class LessonController extends Controller
         $lesson = new Lesson();
         $lesson->name = $request->name;
         $lesson->course_id = $request->course_id;
-        $lesson->user_id = auth()->user()->id;
 
         $course = Course::find($lesson->course_id);
 
@@ -33,11 +32,12 @@ class LessonController extends Controller
                 'code' => 1
             ]);
         }
-
+        
+        $lesson->save();
+        
         return response()->json([
             'message' => 'Leccion guardada correctamente',
             'code' => 200,
-            $lesson->save()
         ]);
    }
 }

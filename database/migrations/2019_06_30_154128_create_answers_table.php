@@ -19,8 +19,6 @@ class CreateAnswersTable extends Migration
             $table->boolean('is_correct');
             $table->unsignedBigInteger('question_id');
             $table->foreign('question_id')->references('id')->on('questions');
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
