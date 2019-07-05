@@ -23,7 +23,7 @@ class ChapterController extends Controller
         $chapter = new Chapter();
         $chapter->name = $request->name;
         $chapter->lesson_id = $request->lesson_id;
-
+        $chapter->user_id = auth()->user()->id;
 
         $lesson = Lesson::find($chapter->lesson_id);
 

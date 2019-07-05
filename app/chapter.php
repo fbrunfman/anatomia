@@ -34,4 +34,9 @@ class Chapter extends Model
     {
         return $this->hasMany('App\Question')->orderBy('order');
     }
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }

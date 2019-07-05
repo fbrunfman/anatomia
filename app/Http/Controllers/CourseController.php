@@ -22,10 +22,10 @@ class CourseController extends Controller
         
         $course = new Course();
         $course->name = $request->name;
-
+        $course->user_id = auth()->user()->id;
 
         return response()->json([
-    		'message' => 'Curso guardada correctamente',
+    		'message' => 'Curso guardado correctamente',
             'code' => 200,
             $course->save()
     	]);
