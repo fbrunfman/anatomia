@@ -21,8 +21,15 @@ class CourseController extends Controller
     {   
         $course = new Course();
         $course->name = $request->name;
-
+        
         $course->save();
+        
+        if (!$course->save()) {
+            return response()->json([
+                'message' => 'Error al guardar curso',
+                'code' => 500,
+            ]);
+        }
         
         return response()->json([
     		'message' => 'Curso guardado correctamente',

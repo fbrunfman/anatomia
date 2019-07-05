@@ -33,8 +33,15 @@ class ChapterController extends Controller
             ]);
         }
 
+        
         $chapter->save();
         
+        if (!$chapter->save()) {
+            return response()->json([
+                'message' => 'Error al guardar capitulo',
+                'code' => 500,
+            ]);
+        }
         return response()->json([
             'message' => 'Capitulo guardado correctamente',
             'code' => 200,

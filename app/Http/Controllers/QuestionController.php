@@ -27,6 +27,13 @@ class QuestionController extends Controller
 
         $question->save();
         
+        if (!$question->save()) {
+            return response()->json([
+                'message' => 'Error al guardar pregunta',
+                'code' => 500,
+            ]);
+        }
+
         return response()->json([
             'message' => 'Pregunta guardada correctamente',
             'code' => 200,
