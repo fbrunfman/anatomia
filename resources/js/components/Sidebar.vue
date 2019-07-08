@@ -4,20 +4,25 @@
       <i class="fas fa-angle-double-right" @click="showNav"></i>
     </div>
     <div class="navigation-icons">
-      <i class="fas fa-home"></i>
-      <i class="fas fa-camera-retro"></i>
-      <i class="fas fa-user-circle"></i>
-      <i class="fas fa-comment-dots"></i>
-      <i class="fas fa-info-circle"></i>
+        <i class="fas fa-user"></i>
+        <i class="fas fa-home"></i>
+        <i class="fas fa-window-restore"></i>
+        <i class="fas fa-plus"></i>
+        <i class="fas fa-edit"></i>
+        <i class="fas fa-headset"></i>
+        <i class="fas fa-power-off"></i>
     </div>
     <div class="navigation-links">
       <transition-group name="fade">
-        <div v-show="showLink" key="1">Home</div>
-        <div v-show="showLink" key="2">Portfolio</div>
-        <div v-show="showLink" key="3">About Me</div>
-        <div v-show="showLink" key="4">Contact</div>
-        <div v-show="showLink" key="5">FAQ</div>
+        <div v-show="showLink" key="1">Usuario</div>
+        <div v-show="showLink" key="2">Inicio</div>
+        <div v-show="showLink" key="3">Dashboard</div>
+        <div v-show="showLink" key="4">Crear cursos</div>
+        <div v-show="showLink" key="5">Editar cursos</div>
+        <div v-show="showLink" key="6">Soporte</div>
+        <div v-show="showLink" key="7">Logout</div>
       </transition-group>
+
     </div>
   </div>
 </template>
@@ -36,13 +41,13 @@
           this.showLink = false;
           setTimeout(() => {
             this.showSidebar = false;
-          }, 500);
+          }, 300);
         }
         else {
           this.showSidebar = true;
           setTimeout(() => {
             this.showLink = true;
-          }, 500);
+          }, 300);
         }
       }
     }
@@ -51,17 +56,19 @@
 
 <style lang="scss" scoped>
   .container {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 70px;
     padding: 10px;
     min-height: calc(100vh - 10px);
-    background-color: rgba($color: #81B121, $alpha: .8);
+    background-color: #97b388;
     border: solid #fff;
+    color: #3d4c4a;
     border-width: 0 1px 0 0;
     z-index: 999;
     transition: all .5s ease-in-out;
+    box-shadow: 0 5px 16px #000000b8;
     .control {
       display: flex;
       justify-content: center;
@@ -75,7 +82,7 @@
       }
     }
     &.show {
-      width: 180px;
+      width: 250px;
       .control > i {
         color: #fff;
         transform: rotateZ(-180deg);
@@ -107,10 +114,11 @@
       div {
         font-size: 1.35rem;
         padding-left: 10px;
-        margin-bottom: 18px;
+        margin-bottom: 19px;
         cursor: pointer;
         &:hover {
           color: #fff;
+          transition: .5s;
         }
       }
     }
@@ -123,7 +131,7 @@
     }
   }
   .fade-enter-active, .fade-leave-active {
-    @include nav-childs(1,2,3,4,5);
+    @include nav-childs(1,2,3,4,5,6,7);
   }
   .fade-enter, .fade-leave-to {
     transform: scale(0);

@@ -32,7 +32,8 @@ Vue.component('App', require('./App.vue').default);
 
 
 const routes = [
-    { path: '/', component: require('./components/Main-Page.vue').default }
+    { path: '/', component: require('./components/Main.vue').default },
+    { path: '/create-course', component: require('./components/Create.vue').default }
  ]
 
 /**

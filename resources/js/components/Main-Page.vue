@@ -1,24 +1,8 @@
 <template>
-    <div>
+    <div class="contenedor-general">
         <div class="sidebar"><Sidebar /></div>
-        <div class="container col-7">
-            <div class="main-content">
-                <div class="">
-                    <div class="card">
-                        <div class="card-header">Example Component</div>
-                        <div class="card-body">
-                        <b-container class="bv-example-row">
-                                <b-row>
-                                    <b-col>1 of 3</b-col>
-                                    <b-col>2 of 3</b-col>
-                                    <b-col>3 of 3</b-col>
-                                </b-row>
-                            </b-container>
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="container-body">
+            <router-view></router-view>
         </div>
     </div>
 </template>
@@ -42,6 +26,22 @@ import Sidebar from './Sidebar.vue'
 
 .sidebar {
     position: relative;
+}
+
+.contenedor-general {
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 70px auto;
+}
+
+.sidebar {
+    width: 70px;
+    height: calc(100vh - 10px);
+}
+
+.container-body {
+    display: flex;
+    justify-content: center;
 }
 
 </style>
