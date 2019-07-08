@@ -36,6 +36,13 @@ class ScreenController extends Controller
         
         $screen->save();
         
+        if (!$screen->save()) {
+            return response()->json([
+                'message' => 'Error al guardar pantalla',
+                'code' => 500,
+            ]);
+        }
+
         return response()->json([
             'message' => 'Pantalla guardada correctamente',
             'code' => 200,

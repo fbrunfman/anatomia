@@ -1,0 +1,34 @@
+{
+    "course":[{
+      "name": "anatomia",
+      "lessons": [
+          {
+              "name":"ojos",
+              "chapters": [
+                  {
+                      "name":"basico",
+                      "screens": [
+                          {
+                              "text": "los ojos sirven para ver",
+                              "order": 1,
+                              "image_url": "image_url"
+                          }
+                      ],
+                      "questions": [
+                          {
+                              "name": "para que sirven los ojos?",
+                              "order": 1,
+                              "answers": [
+                                  {
+                                      "name": "para ver",
+                                      "is_correct": "1"
+                                  }
+                              ]
+                          }
+                      ]
+                  }
+              ]
+          }
+      ]
+    }]
+  }

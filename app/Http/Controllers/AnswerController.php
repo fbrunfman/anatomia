@@ -26,6 +26,13 @@ class AnswerController extends Controller
         }
         
         $answer->save();
+
+        if (!$answer->save()) {
+            return response()->json([
+                'message' => 'Error al guardar respuesta',
+                'code' => 500,
+            ]);
+        }
         
         return response()->json([
             'message' => 'Pregunta guardada correctamente',

@@ -18,7 +18,7 @@ class LessonController extends Controller
         ]);
     }
 
-    public function add(Request $request) 
+    public function add(Request $request)
     {
         $lesson = new Lesson();
         $lesson->name = $request->name;
@@ -32,9 +32,15 @@ class LessonController extends Controller
                 'code' => 1
             ]);
         }
-        
+
         $lesson->save();
-        
+
+        if (!$lesson->save()) {
+            return response()->json([
+                'message' => 'Error al guardar leccion',
+                'code' => 500,
+            ]);
+        }
         return response()->json([
             'message' => 'Leccion guardada correctamente',
             'code' => 200,
