@@ -10,3 +10,4 @@ Homestead.yaml
 app.yaml
 npm-debug.log
 yarn-error.log
+.bash_profile
