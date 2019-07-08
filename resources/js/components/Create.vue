@@ -1,7 +1,7 @@
 <template>
     <div class="contenedor-create ">
         <div class="create"> <h1>Crear curso</h1></div>
-        <form action="">
+        <form @submit.prevent ref="formulario">
             <div class="crear-curso">
                 <b-form-group
                     id="fieldset-1"
@@ -109,28 +109,22 @@
                     </div>
                 </div>
             </div>
+            <button @click="createCourse">Guardar curso</button>
         </form>
     </div>
 </template>
 
 <script>
+import Axios from "axios";
+
 export default {
     computed: {
         state() {
-        return this.courseName.length >= 1 ? true : false
+        return this.courseName.length
         }
     },
     data() {
         return {
-            courseName: '',
-            lecciones: {
-                leccion: []
-            },
-            capitulos: {
-                capitulo: []
-            },
-            lessons: 0,
-            chapters: 0,
             course:[{
                 name: '',
                 lessons: [
@@ -240,6 +234,21 @@ export default {
             this.course[0].lessons[k].chapters[j].questions[l].answers.push({
                 name: '',
                 is_correct: ''
+            })
+        },
+        createCourse() {
+            console.log(this.course[0]);
+            Axios.defaults.headers.common['Authorization'] = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImQwZGQ5ZGMwNjc4MzNiYmRlMmVjOGZjYzUzNDY4YjVjZjk2ODZlMmUxZmNmNjM5M2JhZjFiNWI2Yjk5NzA5ZTkzNzZlN2JhYzMzMjA4NGQxIn0.eyJhdWQiOiIyIiwianRpIjoiZDBkZDlkYzA2NzgzM2JiZGUyZWM4ZmNjNTM0NjhiNWNmOTY4NmUyZTFmY2Y2MzkzYmFmMWI1YjZiOTk3MDllOTM3NmU3YmFjMzMyMDg0ZDEiLCJpYXQiOjE1NjI2MDYxMDAsIm5iZiI6MTU2MjYwNjEwMCwiZXhwIjoxNTk0MjI4NTAwLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.HSwoS2qHiByQDt1hrV_VvVCZqvHMhEG3fIP3De7AYPrkcOB5t238Yr4amHM2GlX7jiIeam82unc3bSoPlreV-PG65jWqDGCDx95MT9Iax3o5hFI7P2Ct0Z_Umvj2t_IHb-KzHcU3SC3SPDaU1E6usFjaiBsSCjMBHYETlIP-_2YQWIwwxC4G0FeYSntsZwAo4Iaug830x4vcpnfZp5tx-g0euIWXvkMce2kx1_4nSsKnkMVJAuZColGw9yF2ZBBVsNZcxBK-he8i0TYoUgQQi7ChNqzpSL3EIWoyjbsF7DMbM7VQH5Y2OebniCnJ4y2KIgOWjiF6AIKT7F9vqtdZp6P4PavcT2upS4PYCo11-vdNpZDAAvNhJ17zy3rrC5-GOsnj7u_mmPc5ScHGsu3e7NRwArELJOL6_y6T8wy2lcJTw96R2C1bOyI6Q-Ja6Le0MdGGD_eWLfbj-INbbNq4JDogS42n4cMRxVdON6DxuwI906AjKnnLMbow9aYIxsr9esjJ7hngu_Yw5SJDYwpVD-kfo73EOZAjqF0mVq28eWEhzf9ONZZC26TOqhaqEvN87njLryK1DGewy4bVm4H8p0I6QEUq7PxNEfHa6iIj0yjY9fXdYmT1TJmmvXY3I-cZuG1-f7sCmQJn_TUtkIJ46M-VH-36ND0BCoeEJvDD7N8'
+            var courseObject = {course: this.course}
+            Axios.post('/api/course/add', {
+                course: JSON.stringify(courseObject),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => {
+                    console.log('todo bien');
+
             })
         }
     }

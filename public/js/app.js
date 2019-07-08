@@ -1727,6 +1727,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -1842,23 +1844,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   computed: {
     state: function state() {
-      return this.courseName.length >= 1 ? true : false;
+      return this.courseName.length;
     }
   },
   data: function data() {
     return {
-      courseName: '',
-      lecciones: {
-        leccion: []
-      },
-      capitulos: {
-        capitulo: []
-      },
-      lessons: 0,
-      chapters: 0,
       course: [{
         name: '',
         lessons: [{
@@ -1942,6 +1937,21 @@ __webpack_require__.r(__webpack_exports__);
       this.course[0].lessons[k].chapters[j].questions[l].answers.push({
         name: '',
         is_correct: ''
+      });
+    },
+    createCourse: function createCourse() {
+      console.log(this.course[0]);
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.defaults.headers.common['Authorization'] = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImQwZGQ5ZGMwNjc4MzNiYmRlMmVjOGZjYzUzNDY4YjVjZjk2ODZlMmUxZmNmNjM5M2JhZjFiNWI2Yjk5NzA5ZTkzNzZlN2JhYzMzMjA4NGQxIn0.eyJhdWQiOiIyIiwianRpIjoiZDBkZDlkYzA2NzgzM2JiZGUyZWM4ZmNjNTM0NjhiNWNmOTY4NmUyZTFmY2Y2MzkzYmFmMWI1YjZiOTk3MDllOTM3NmU3YmFjMzMyMDg0ZDEiLCJpYXQiOjE1NjI2MDYxMDAsIm5iZiI6MTU2MjYwNjEwMCwiZXhwIjoxNTk0MjI4NTAwLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.HSwoS2qHiByQDt1hrV_VvVCZqvHMhEG3fIP3De7AYPrkcOB5t238Yr4amHM2GlX7jiIeam82unc3bSoPlreV-PG65jWqDGCDx95MT9Iax3o5hFI7P2Ct0Z_Umvj2t_IHb-KzHcU3SC3SPDaU1E6usFjaiBsSCjMBHYETlIP-_2YQWIwwxC4G0FeYSntsZwAo4Iaug830x4vcpnfZp5tx-g0euIWXvkMce2kx1_4nSsKnkMVJAuZColGw9yF2ZBBVsNZcxBK-he8i0TYoUgQQi7ChNqzpSL3EIWoyjbsF7DMbM7VQH5Y2OebniCnJ4y2KIgOWjiF6AIKT7F9vqtdZp6P4PavcT2upS4PYCo11-vdNpZDAAvNhJ17zy3rrC5-GOsnj7u_mmPc5ScHGsu3e7NRwArELJOL6_y6T8wy2lcJTw96R2C1bOyI6Q-Ja6Le0MdGGD_eWLfbj-INbbNq4JDogS42n4cMRxVdON6DxuwI906AjKnnLMbow9aYIxsr9esjJ7hngu_Yw5SJDYwpVD-kfo73EOZAjqF0mVq28eWEhzf9ONZZC26TOqhaqEvN87njLryK1DGewy4bVm4H8p0I6QEUq7PxNEfHa6iIj0yjY9fXdYmT1TJmmvXY3I-cZuG1-f7sCmQJn_TUtkIJ46M-VH-36ND0BCoeEJvDD7N8';
+      var courseObject = {
+        course: this.course
+      };
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/course/add', {
+        course: JSON.stringify(courseObject),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }).then(function (response) {
+        console.log('todo bien');
       });
     }
   }
@@ -67058,538 +67068,557 @@ var render = function() {
   return _c("div", { staticClass: "contenedor-create " }, [
     _vm._m(0),
     _vm._v(" "),
-    _c("form", { attrs: { action: "" } }, [
-      _c(
-        "div",
-        { staticClass: "crear-curso" },
-        [
-          _c(
-            "b-form-group",
-            {
-              attrs: {
-                id: "fieldset-1",
-                label: "Nombre del curso",
-                "label-for": "input-1"
-              }
-            },
-            [
-              _c(
-                "div",
-                { staticClass: "d-flex flex-row align-items-center" },
-                [
-                  _c("b-form-input", {
-                    attrs: { id: "input-1", trim: "" },
-                    model: {
-                      value: _vm.course[0].name,
-                      callback: function($$v) {
-                        _vm.$set(_vm.course[0], "name", $$v)
-                      },
-                      expression: "course[0].name"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("i", {
-                    staticClass: "fas fa-plus",
-                    on: { click: _vm.createLesson }
-                  })
-                ],
-                1
-              )
-            ]
-          ),
-          _vm._v(" "),
-          _vm._l(_vm.course[0].lessons, function(lesson, k) {
-            return _c(
-              "div",
-              { key: "lesson-" + k, staticClass: "crear-leccion ml-4" },
+    _c(
+      "form",
+      {
+        ref: "formulario",
+        on: {
+          submit: function($event) {
+            $event.preventDefault()
+          }
+        }
+      },
+      [
+        _c(
+          "div",
+          { staticClass: "crear-curso" },
+          [
+            _c(
+              "b-form-group",
+              {
+                attrs: {
+                  id: "fieldset-1",
+                  label: "Nombre del curso",
+                  "label-for": "input-1"
+                }
+              },
               [
                 _c(
-                  "b-form-group",
-                  {
-                    attrs: {
-                      id: "lesson-" + k,
-                      label: "Nombre de la lección",
-                      "label-for": "lesson-" + k
-                    }
-                  },
+                  "div",
+                  { staticClass: "d-flex flex-row align-items-center" },
                   [
-                    _c(
-                      "div",
-                      { staticClass: "d-flex flex-row align-items-center" },
-                      [
-                        _c("b-form-input", {
-                          attrs: { id: "lesson-" + k, trim: "" },
-                          model: {
-                            value: _vm.course[0].lessons[k].name,
-                            callback: function($$v) {
-                              _vm.$set(_vm.course[0].lessons[k], "name", $$v)
-                            },
-                            expression: "course[0].lessons[k].name"
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("i", {
-                          staticClass: "fas fa-plus",
-                          on: {
-                            click: function($event) {
-                              return _vm.createChapter(k)
-                            }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("i", { staticClass: "fas fa-minus" })
-                      ],
-                      1
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _vm._l(_vm.course[0].lessons[k].chapters, function(chapter, j) {
-                  return _c(
-                    "div",
-                    { key: "chapter-" + j, staticClass: "crear-capitulo" },
+                    _c("b-form-input", {
+                      attrs: { id: "input-1", trim: "" },
+                      model: {
+                        value: _vm.course[0].name,
+                        callback: function($$v) {
+                          _vm.$set(_vm.course[0], "name", $$v)
+                        },
+                        expression: "course[0].name"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("i", {
+                      staticClass: "fas fa-plus",
+                      on: { click: _vm.createLesson }
+                    })
+                  ],
+                  1
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _vm._l(_vm.course[0].lessons, function(lesson, k) {
+              return _c(
+                "div",
+                { key: "lesson-" + k, staticClass: "crear-leccion ml-4" },
+                [
+                  _c(
+                    "b-form-group",
+                    {
+                      attrs: {
+                        id: "lesson-" + k,
+                        label: "Nombre de la lección",
+                        "label-for": "lesson-" + k
+                      }
+                    },
                     [
                       _c(
-                        "b-form-group",
-                        {
-                          attrs: {
-                            id: "chapter-" + j,
-                            label: "Nombre del  capítulo",
-                            "label-for": "chapter-" + j
-                          }
-                        },
+                        "div",
+                        { staticClass: "d-flex flex-row align-items-center" },
                         [
-                          _c(
-                            "div",
-                            {
-                              staticClass: "d-flex flex-row align-items-center"
-                            },
-                            [
-                              _c("b-form-input", {
-                                attrs: { id: "chapter-" + j, trim: "" },
-                                model: {
-                                  value:
-                                    _vm.course[0].lessons[k].chapters[j].name,
-                                  callback: function($$v) {
-                                    _vm.$set(
-                                      _vm.course[0].lessons[k].chapters[j],
-                                      "name",
-                                      $$v
-                                    )
-                                  },
-                                  expression:
-                                    "course[0].lessons[k].chapters[j].name"
-                                }
-                              }),
-                              _vm._v(" "),
-                              _c("i", {
-                                staticClass: "fas fa-plus",
-                                on: {
-                                  click: function($event) {
-                                    return _vm.createScreenQuestion(j, k)
-                                  }
-                                }
-                              }),
-                              _vm._v(" "),
-                              _c("i", { staticClass: "fas fa-minus" })
-                            ],
-                            1
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _vm._l(
-                        _vm.course[0].lessons[k].chapters[j].screens,
-                        function(screen, l) {
-                          return _c(
-                            "div",
-                            {
-                              key: "screen-" + l,
-                              staticClass: "crear-pantalla ml-4 my-2"
-                            },
-                            [
-                              _c(
-                                "b-form-group",
-                                {
-                                  attrs: {
-                                    id: "screen-text-" + l,
-                                    label: "Nombre de la pantalla",
-                                    "label-for": "screen-text-" + l
-                                  }
-                                },
-                                [
-                                  _c(
-                                    "div",
-                                    {
-                                      staticClass:
-                                        "d-flex flex-row align-items-center"
+                          _c("b-form-input", {
+                            attrs: { id: "lesson-" + k, trim: "" },
+                            model: {
+                              value: _vm.course[0].lessons[k].name,
+                              callback: function($$v) {
+                                _vm.$set(_vm.course[0].lessons[k], "name", $$v)
+                              },
+                              expression: "course[0].lessons[k].name"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("i", {
+                            staticClass: "fas fa-plus",
+                            on: {
+                              click: function($event) {
+                                return _vm.createChapter(k)
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("i", { staticClass: "fas fa-minus" })
+                        ],
+                        1
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _vm._l(_vm.course[0].lessons[k].chapters, function(
+                    chapter,
+                    j
+                  ) {
+                    return _c(
+                      "div",
+                      { key: "chapter-" + j, staticClass: "crear-capitulo" },
+                      [
+                        _c(
+                          "b-form-group",
+                          {
+                            attrs: {
+                              id: "chapter-" + j,
+                              label: "Nombre del  capítulo",
+                              "label-for": "chapter-" + j
+                            }
+                          },
+                          [
+                            _c(
+                              "div",
+                              {
+                                staticClass:
+                                  "d-flex flex-row align-items-center"
+                              },
+                              [
+                                _c("b-form-input", {
+                                  attrs: { id: "chapter-" + j, trim: "" },
+                                  model: {
+                                    value:
+                                      _vm.course[0].lessons[k].chapters[j].name,
+                                    callback: function($$v) {
+                                      _vm.$set(
+                                        _vm.course[0].lessons[k].chapters[j],
+                                        "name",
+                                        $$v
+                                      )
                                     },
-                                    [
-                                      _c("b-form-textarea", {
-                                        attrs: {
-                                          rows: "3",
-                                          "max-rows": "6",
-                                          id: "screen-text-" + l,
-                                          trim: ""
-                                        },
-                                        model: {
-                                          value:
-                                            _vm.course[0].lessons[k].chapters[j]
-                                              .screens[l].text,
-                                          callback: function($$v) {
-                                            _vm.$set(
-                                              _vm.course[0].lessons[k].chapters[
-                                                j
-                                              ].screens[l],
-                                              "text",
-                                              $$v
-                                            )
-                                          },
-                                          expression:
-                                            "course[0].lessons[k].chapters[j].screens[l].text"
-                                        }
-                                      })
-                                    ],
-                                    1
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "b-form-group",
-                                {
-                                  attrs: {
-                                    id: "screen-order-" + l,
-                                    label: "Orden de la pantalla",
-                                    "label-for": "screen-order-" + l
+                                    expression:
+                                      "course[0].lessons[k].chapters[j].name"
                                   }
-                                },
-                                [
-                                  _c(
-                                    "div",
-                                    {
-                                      staticClass:
-                                        "d-flex flex-row align-items-center"
-                                    },
-                                    [
-                                      _c("b-form-input", {
-                                        attrs: {
-                                          id: "screen-order-" + l,
-                                          type: "number",
-                                          trim: ""
-                                        },
-                                        model: {
-                                          value:
-                                            _vm.course[0].lessons[k].chapters[j]
-                                              .screens[l].order,
-                                          callback: function($$v) {
-                                            _vm.$set(
-                                              _vm.course[0].lessons[k].chapters[
-                                                j
-                                              ].screens[l],
-                                              "order",
-                                              $$v
-                                            )
-                                          },
-                                          expression:
-                                            "course[0].lessons[k].chapters[j].screens[l].order"
-                                        }
-                                      })
-                                    ],
-                                    1
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "b-form-group",
-                                {
-                                  attrs: {
-                                    id: "screen-url-" + l,
-                                    label: "Url de la imagen de la pantalla",
-                                    "label-for": "screen-url-" + l
-                                  }
-                                },
-                                [
-                                  _c(
-                                    "div",
-                                    {
-                                      staticClass:
-                                        "d-flex flex-row align-items-center"
-                                    },
-                                    [
-                                      _c("b-form-input", {
-                                        attrs: {
-                                          id: "screen-url-" + l,
-                                          trim: ""
-                                        },
-                                        model: {
-                                          value:
-                                            _vm.course[0].lessons[k].chapters[j]
-                                              .screens[l].image_url,
-                                          callback: function($$v) {
-                                            _vm.$set(
-                                              _vm.course[0].lessons[k].chapters[
-                                                j
-                                              ].screens[l],
-                                              "image_url",
-                                              $$v
-                                            )
-                                          },
-                                          expression:
-                                            "course[0].lessons[k].chapters[j].screens[l].image_url"
-                                        }
-                                      })
-                                    ],
-                                    1
-                                  )
-                                ]
-                              )
-                            ],
-                            1
-                          )
-                        }
-                      ),
-                      _vm._v(" "),
-                      _vm._l(
-                        _vm.course[0].lessons[k].chapters[j].questions,
-                        function(question, l) {
-                          return _c(
-                            "div",
-                            {
-                              key: "question-" + l,
-                              staticClass: "crear-pregunta ml-4 my-2"
-                            },
-                            [
-                              _c("div", { staticClass: "text-right" }, [
+                                }),
+                                _vm._v(" "),
                                 _c("i", {
                                   staticClass: "fas fa-plus",
                                   on: {
                                     click: function($event) {
-                                      return _vm.createAnswer(l, j, k)
+                                      return _vm.createScreenQuestion(j, k)
                                     }
                                   }
                                 }),
                                 _vm._v(" "),
                                 _c("i", { staticClass: "fas fa-minus" })
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "b-form-group",
-                                {
-                                  attrs: {
-                                    id: "question-text-" + l,
-                                    label: "Nombre de la pregunta",
-                                    "label-for": "question-text-" + l
-                                  }
-                                },
-                                [
-                                  _c(
-                                    "div",
-                                    {
-                                      staticClass:
-                                        "d-flex flex-row align-items-center"
-                                    },
-                                    [
-                                      _c("b-form-textarea", {
-                                        attrs: {
-                                          rows: "3",
-                                          "max-rows": "6",
-                                          id: "question-text-" + l,
-                                          trim: ""
-                                        },
-                                        model: {
-                                          value:
-                                            _vm.course[0].lessons[k].chapters[j]
-                                              .questions[l].name,
-                                          callback: function($$v) {
-                                            _vm.$set(
-                                              _vm.course[0].lessons[k].chapters[
-                                                j
-                                              ].questions[l],
-                                              "name",
-                                              $$v
-                                            )
-                                          },
-                                          expression:
-                                            "course[0].lessons[k].chapters[j].questions[l].name"
-                                        }
-                                      })
-                                    ],
-                                    1
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "b-form-group",
-                                {
-                                  attrs: {
-                                    id: "question-order-" + l,
-                                    label: "Orden de la pregunta",
-                                    "label-for": "question-order-" + l
-                                  }
-                                },
-                                [
-                                  _c(
-                                    "div",
-                                    {
-                                      staticClass:
-                                        "d-flex flex-row align-items-center"
-                                    },
-                                    [
-                                      _c("b-form-input", {
-                                        attrs: {
-                                          id: "question-order-" + l,
-                                          type: "number",
-                                          trim: ""
-                                        },
-                                        model: {
-                                          value:
-                                            _vm.course[0].lessons[k].chapters[j]
-                                              .questions[l].order,
-                                          callback: function($$v) {
-                                            _vm.$set(
-                                              _vm.course[0].lessons[k].chapters[
-                                                j
-                                              ].questions[l],
-                                              "order",
-                                              $$v
-                                            )
-                                          },
-                                          expression:
-                                            "course[0].lessons[k].chapters[j].questions[l].order"
-                                        }
-                                      })
-                                    ],
-                                    1
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _vm._l(
-                                _vm.course[0].lessons[k].chapters[j].questions[
-                                  l
-                                ].answers,
-                                function(answer, p) {
-                                  return _c(
-                                    "div",
-                                    {
-                                      key: "answer-" + p,
-                                      staticClass: "crear-respuesta ml-4 my-2"
-                                    },
-                                    [
-                                      _c(
-                                        "b-form-group",
-                                        {
+                              ],
+                              1
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _vm._l(
+                          _vm.course[0].lessons[k].chapters[j].screens,
+                          function(screen, l) {
+                            return _c(
+                              "div",
+                              {
+                                key: "screen-" + l,
+                                staticClass: "crear-pantalla ml-4 my-2"
+                              },
+                              [
+                                _c(
+                                  "b-form-group",
+                                  {
+                                    attrs: {
+                                      id: "screen-text-" + l,
+                                      label: "Nombre de la pantalla",
+                                      "label-for": "screen-text-" + l
+                                    }
+                                  },
+                                  [
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "d-flex flex-row align-items-center"
+                                      },
+                                      [
+                                        _c("b-form-textarea", {
                                           attrs: {
-                                            id: "answer-text-" + p,
-                                            label: "Nombre de la respuesta",
-                                            "label-for": "answer-text-" + p
-                                          }
-                                        },
-                                        [
-                                          _c(
-                                            "div",
-                                            {
-                                              staticClass:
-                                                "d-flex flex-row align-items-center"
-                                            },
-                                            [
-                                              _c("b-form-textarea", {
-                                                attrs: {
-                                                  rows: "3",
-                                                  "max-rows": "6",
-                                                  id: "answer-text-" + l,
-                                                  trim: ""
-                                                },
-                                                model: {
-                                                  value:
-                                                    _vm.course[0].lessons[k]
-                                                      .chapters[j].questions[l]
-                                                      .answers[p].name,
-                                                  callback: function($$v) {
-                                                    _vm.$set(
-                                                      _vm.course[0].lessons[k]
-                                                        .chapters[j].questions[
-                                                        l
-                                                      ].answers[p],
-                                                      "name",
-                                                      $$v
-                                                    )
-                                                  },
-                                                  expression:
-                                                    "course[0].lessons[k].chapters[j].questions[l].answers[p].name"
-                                                }
-                                              })
-                                            ],
-                                            1
-                                          )
-                                        ]
-                                      ),
-                                      _vm._v(" "),
-                                      _c("span", [
-                                        _vm._v("Respuesta falsa o verdadera")
-                                      ]),
-                                      _vm._v(" "),
-                                      _c(
-                                        "b-form-select",
-                                        {
+                                            rows: "3",
+                                            "max-rows": "6",
+                                            id: "screen-text-" + l,
+                                            trim: ""
+                                          },
                                           model: {
                                             value:
                                               _vm.course[0].lessons[k].chapters[
                                                 j
-                                              ].questions[l].answers[p]
-                                                .is_correct,
+                                              ].screens[l].text,
                                             callback: function($$v) {
                                               _vm.$set(
                                                 _vm.course[0].lessons[k]
-                                                  .chapters[j].questions[l]
-                                                  .answers[p],
-                                                "is_correct",
+                                                  .chapters[j].screens[l],
+                                                "text",
                                                 $$v
                                               )
                                             },
                                             expression:
-                                              "course[0].lessons[k].chapters[j].questions[l].answers[p].is_correct"
+                                              "course[0].lessons[k].chapters[j].screens[l].text"
                                           }
-                                        },
-                                        [
-                                          _c(
-                                            "option",
-                                            { attrs: { value: "0" } },
-                                            [_vm._v("Falsa")]
-                                          ),
-                                          _vm._v(" "),
-                                          _c(
-                                            "option",
-                                            { attrs: { value: "1" } },
-                                            [_vm._v("Verdadera")]
-                                          )
-                                        ]
-                                      )
-                                    ],
-                                    1
-                                  )
-                                }
-                              )
-                            ],
-                            2
-                          )
-                        }
-                      )
-                    ],
-                    2
-                  )
-                })
-              ],
-              2
-            )
-          })
-        ],
-        2
-      )
-    ])
+                                        })
+                                      ],
+                                      1
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "b-form-group",
+                                  {
+                                    attrs: {
+                                      id: "screen-order-" + l,
+                                      label: "Orden de la pantalla",
+                                      "label-for": "screen-order-" + l
+                                    }
+                                  },
+                                  [
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "d-flex flex-row align-items-center"
+                                      },
+                                      [
+                                        _c("b-form-input", {
+                                          attrs: {
+                                            id: "screen-order-" + l,
+                                            type: "number",
+                                            trim: ""
+                                          },
+                                          model: {
+                                            value:
+                                              _vm.course[0].lessons[k].chapters[
+                                                j
+                                              ].screens[l].order,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.course[0].lessons[k]
+                                                  .chapters[j].screens[l],
+                                                "order",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "course[0].lessons[k].chapters[j].screens[l].order"
+                                          }
+                                        })
+                                      ],
+                                      1
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "b-form-group",
+                                  {
+                                    attrs: {
+                                      id: "screen-url-" + l,
+                                      label: "Url de la imagen de la pantalla",
+                                      "label-for": "screen-url-" + l
+                                    }
+                                  },
+                                  [
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "d-flex flex-row align-items-center"
+                                      },
+                                      [
+                                        _c("b-form-input", {
+                                          attrs: {
+                                            id: "screen-url-" + l,
+                                            trim: ""
+                                          },
+                                          model: {
+                                            value:
+                                              _vm.course[0].lessons[k].chapters[
+                                                j
+                                              ].screens[l].image_url,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.course[0].lessons[k]
+                                                  .chapters[j].screens[l],
+                                                "image_url",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "course[0].lessons[k].chapters[j].screens[l].image_url"
+                                          }
+                                        })
+                                      ],
+                                      1
+                                    )
+                                  ]
+                                )
+                              ],
+                              1
+                            )
+                          }
+                        ),
+                        _vm._v(" "),
+                        _vm._l(
+                          _vm.course[0].lessons[k].chapters[j].questions,
+                          function(question, l) {
+                            return _c(
+                              "div",
+                              {
+                                key: "question-" + l,
+                                staticClass: "crear-pregunta ml-4 my-2"
+                              },
+                              [
+                                _c("div", { staticClass: "text-right" }, [
+                                  _c("i", {
+                                    staticClass: "fas fa-plus",
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.createAnswer(l, j, k)
+                                      }
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("i", { staticClass: "fas fa-minus" })
+                                ]),
+                                _vm._v(" "),
+                                _c(
+                                  "b-form-group",
+                                  {
+                                    attrs: {
+                                      id: "question-text-" + l,
+                                      label: "Nombre de la pregunta",
+                                      "label-for": "question-text-" + l
+                                    }
+                                  },
+                                  [
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "d-flex flex-row align-items-center"
+                                      },
+                                      [
+                                        _c("b-form-textarea", {
+                                          attrs: {
+                                            rows: "3",
+                                            "max-rows": "6",
+                                            id: "question-text-" + l,
+                                            trim: ""
+                                          },
+                                          model: {
+                                            value:
+                                              _vm.course[0].lessons[k].chapters[
+                                                j
+                                              ].questions[l].name,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.course[0].lessons[k]
+                                                  .chapters[j].questions[l],
+                                                "name",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "course[0].lessons[k].chapters[j].questions[l].name"
+                                          }
+                                        })
+                                      ],
+                                      1
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "b-form-group",
+                                  {
+                                    attrs: {
+                                      id: "question-order-" + l,
+                                      label: "Orden de la pregunta",
+                                      "label-for": "question-order-" + l
+                                    }
+                                  },
+                                  [
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "d-flex flex-row align-items-center"
+                                      },
+                                      [
+                                        _c("b-form-input", {
+                                          attrs: {
+                                            id: "question-order-" + l,
+                                            type: "number",
+                                            trim: ""
+                                          },
+                                          model: {
+                                            value:
+                                              _vm.course[0].lessons[k].chapters[
+                                                j
+                                              ].questions[l].order,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.course[0].lessons[k]
+                                                  .chapters[j].questions[l],
+                                                "order",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "course[0].lessons[k].chapters[j].questions[l].order"
+                                          }
+                                        })
+                                      ],
+                                      1
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _vm._l(
+                                  _vm.course[0].lessons[k].chapters[j]
+                                    .questions[l].answers,
+                                  function(answer, p) {
+                                    return _c(
+                                      "div",
+                                      {
+                                        key: "answer-" + p,
+                                        staticClass: "crear-respuesta ml-4 my-2"
+                                      },
+                                      [
+                                        _c(
+                                          "b-form-group",
+                                          {
+                                            attrs: {
+                                              id: "answer-text-" + p,
+                                              label: "Nombre de la respuesta",
+                                              "label-for": "answer-text-" + p
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "div",
+                                              {
+                                                staticClass:
+                                                  "d-flex flex-row align-items-center"
+                                              },
+                                              [
+                                                _c("b-form-textarea", {
+                                                  attrs: {
+                                                    rows: "3",
+                                                    "max-rows": "6",
+                                                    id: "answer-text-" + l,
+                                                    trim: ""
+                                                  },
+                                                  model: {
+                                                    value:
+                                                      _vm.course[0].lessons[k]
+                                                        .chapters[j].questions[
+                                                        l
+                                                      ].answers[p].name,
+                                                    callback: function($$v) {
+                                                      _vm.$set(
+                                                        _vm.course[0].lessons[k]
+                                                          .chapters[j]
+                                                          .questions[l].answers[
+                                                          p
+                                                        ],
+                                                        "name",
+                                                        $$v
+                                                      )
+                                                    },
+                                                    expression:
+                                                      "course[0].lessons[k].chapters[j].questions[l].answers[p].name"
+                                                  }
+                                                })
+                                              ],
+                                              1
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c("span", [
+                                          _vm._v("Respuesta falsa o verdadera")
+                                        ]),
+                                        _vm._v(" "),
+                                        _c(
+                                          "b-form-select",
+                                          {
+                                            model: {
+                                              value:
+                                                _vm.course[0].lessons[k]
+                                                  .chapters[j].questions[l]
+                                                  .answers[p].is_correct,
+                                              callback: function($$v) {
+                                                _vm.$set(
+                                                  _vm.course[0].lessons[k]
+                                                    .chapters[j].questions[l]
+                                                    .answers[p],
+                                                  "is_correct",
+                                                  $$v
+                                                )
+                                              },
+                                              expression:
+                                                "course[0].lessons[k].chapters[j].questions[l].answers[p].is_correct"
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "option",
+                                              { attrs: { value: "0" } },
+                                              [_vm._v("Falsa")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              { attrs: { value: "1" } },
+                                              [_vm._v("Verdadera")]
+                                            )
+                                          ]
+                                        )
+                                      ],
+                                      1
+                                    )
+                                  }
+                                )
+                              ],
+                              2
+                            )
+                          }
+                        )
+                      ],
+                      2
+                    )
+                  })
+                ],
+                2
+              )
+            })
+          ],
+          2
+        ),
+        _vm._v(" "),
+        _c("button", { on: { click: _vm.createCourse } }, [
+          _vm._v("Guardar curso")
+        ])
+      ]
+    )
   ])
 }
 var staticRenderFns = [
