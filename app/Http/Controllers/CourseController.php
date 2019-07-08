@@ -120,49 +120,114 @@ class CourseController extends Controller
     public function add(Request $request)
     {
         $json = json_decode($request->course);
-        dd($json['course']);
         $course = new Course();
-        $course->name = $request->name;
+        $course->name = $json->course[0]->name;
 
-        $course->save();
-
-        if (!$course->save())
-        {
+        if (!$course->save()) {
             return response()->json([
                 'message' => 'Error al guardar curso',
-                'code' => 500,
+                'code' => 500
             ]);
         } else {
-            $lessons = $request->lessons;
+            $lessons = $json->course[0]->lessons;
             $lessonsArray = array();
             foreach($lessons as $lesson)
             {
                 if (!empty($lesson))
                 {
                     $lessonsArray[] = [
-                        'name' => $lesson,
+                        'name' => $lesson->name,
                         'course_id' => $course->id
                     ];
                 }
             }
-
             if (!Lesson::insert($lessonsArray)) {
                 Course::find($course->id)->delete();
                 Lesson::where('course_id', $course->id)->delete();
                 return response()->json([
                     'message' => 'Error al guardar lecciones',
-                    'code' => 500,
+                    'code' => 501
                 ]);
             } else {
                 $last_lesson_id = Lesson::latest('id')->select('id')->first()->toArray()['id'];
                 $first_lesson_id = $last_lesson_id - count($lessons) + 1;
                 for ($i=0; $i < count($lessons); $i++) {
-                    $chapters =
+                    $chapters = $lessons[$i]->chapters;
+
+                    foreach ($chapters as $chapter) {
+                        $newChapter = new Chapter();
+                        $newChapter->name = $chapter->name;
+                        $newChapter->lesson_id = $first_lesson_id + $i;
+
+                        if (!$newChapter->save()) {
+                            ##### Borrar todos los capitulos #####
+                            return response()->json([
+                                'message' => 'Error al guardar capítulos',
+                                'code' => 502
+                            ]);
+                        } else {
+                            $screens = $chapter->screens;
+
+                            foreach ($screens as $screen) {
+
+                                $newScreen = new Screen();
+                                $newScreen->text = $screen->text;
+                                $newScreen->image_url = $screen->image_url;
+                                $newScreen->order = $screen->order;
+                                $newScreen->chapter_id = $newChapter->id;
+
+                                if (!$newScreen->save()) {
+                                    ##### Borrar todo lo anterior #####
+                                    return response()->json([
+                                        'message' => 'Error al guardar pantalla',
+                                        'code' => 503
+                                    ]);
+                                }
+                            }
+
+                            $questions = $chapter->questions;
+
+                            foreach ($questions as $questions) {
+
+                                $newQuestion = new Question();
+                                $newQuestion->name = $questions->name;
+                                $newQuestion->order = $questions->order;
+                                $newQuestion->chapter_id = $newChapter->id;
+
+                                if (!$newQuestion->save()) {
+                                    ##### Borrar todo lo anterior #####
+                                    return response()->json([
+                                        'message' => 'Error al guardar pregunta',
+                                        'code' => 504
+                                    ]);
+                                } else {
+                                    $answers = $questions->answers;
+
+                                    foreach ($answers as $answer) {
+                                        $newAnswer = new Answer();
+                                        $newAnswer->name = $answer->name;
+                                        $newAnswer->is_correct = $answer->is_correct;
+                                        $newAnswer->question_id = $newQuestion->id;
+
+                                        if (!$newAnswer->save()) {
+                                            ##### Borrar todo lo anterior #####
+                                            return response()->json([
+                                                'message' => 'Error al guardar pregunta',
+                                                'code' => 505
+                                            ]);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             }
 
-
-
+            return response()->json([
+                'message' => 'Happiness is a warm caca',
+                'code' => 200
+            ]);
         }
     }
 }

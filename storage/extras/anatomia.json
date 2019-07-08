@@ -12,7 +12,12 @@
                               "text": "los ojos sirven para ver",
                               "order": 1,
                               "image_url": "image_url"
-                          }
+                          },
+                          {
+                            "text": "los ojos también sirven para comer",
+                            "order": 2,
+                            "image_url": "image_url"
+                        }
                       ],
                       "questions": [
                           {
@@ -22,13 +27,98 @@
                                   {
                                       "name": "para ver",
                                       "is_correct": "1"
+                                  },
+                                  {
+                                      "name": "para comer",
+                                      "is_correct": "0"
+                                  },
+                                  {
+                                      "name": "para oler",
+                                      "is_correct": "0"
                                   }
                               ]
                           }
                       ]
                   }
               ]
-          }
+          },
+          {
+            "name":"orejas",
+            "chapters": [
+                {
+                    "name":"basico",
+                    "screens": [
+                        {
+                            "text": "las orejas sirven para oler",
+                            "order": 1,
+                            "image_url": "image_url"
+                        },
+                        {
+                            "text": "tu vieja",
+                            "order": 2,
+                            "image_url": "image_url"
+                        }
+                    ],
+                    "questions": [
+                        {
+                            "name": "para que sirven las orejas?",
+                            "order": 1,
+                            "answers": [
+                                {
+                                    "name": "radio",
+                                    "is_correct": "0"
+                                },
+                                {
+                                    "name": "tu vieja",
+                                    "is_correct": "1"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "para que sirven los tímpanos?",
+                            "order": 1,
+                            "answers": [
+                                {
+                                    "name": "para escuchar metal progresivo",
+                                    "is_correct": "1"
+                                },
+                                {
+                                    "name": "para escuchar",
+                                    "is_correct": "0"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"ano",
+            "chapters": [
+                {
+                    "name":"basico",
+                    "screens": [
+                        {
+                            "text": "el ano me lo gano tra ba jando",
+                            "order": 1,
+                            "image_url": "image_url"
+                        }
+                    ],
+                    "questions": [
+                        {
+                            "name": "para que sirven los anos?",
+                            "order": 1,
+                            "answers": [
+                                {
+                                    "name": "para oler",
+                                    "is_correct": "1"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
       ]
     }]
-  }
+}
