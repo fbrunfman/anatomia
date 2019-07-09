@@ -12,9 +12,14 @@ import Vue from 'vue'
 import BootstrapVue from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
+import Vuex from 'vuex'
+import StoreData from './store'
 
 Vue.use(BootstrapVue)
 Vue.use(VueRouter)
+Vue.use(Vuex)
+
+const store = new Vuex.Store(StoreData)
 
 
 /**
@@ -32,8 +37,9 @@ Vue.component('App', require('./App.vue').default);
 
 
 const routes = [
-    { path: '/', component: require('./components/Main.vue').default },
-    { path: '/create-course', component: require('./components/Create.vue').default }
+    { path: '/', component: require('./components/Main.vue').default, meta: {requiresAuth: true} },
+    { path: '/create-course', component: require('./components/Create.vue').default, meta: {requiresAuth: true} },
+    { path: '/login', component: require('./components/Login.vue').default, meta: {requiresVisitor: true} },
  ]
 
 /**
@@ -46,8 +52,37 @@ const router = new VueRouter({
     routes
   })
 
+router.beforeEach((to, from, next) => {
+if (to.matched.some(record => record.meta.requiresAuth)) {
+    // this route requires auth, check if logged in
+    // if not, redirect to login page.
+    if (!store.getters.loggedIn) {
+    next({
+        path: '/login',
+        query: { redirect: to.fullPath }
+    })
+    } else {
+    next()
+    }
+}    else if (to.matched.some(record => record.meta.requiresVisitor)) {
+    // this route requires auth, check if logged in
+    // if not, redirect to login page.
+    if (store.getters.loggedIn) {
+        next({
+        path: '/',
+        query: { redirect: to.fullPath }
+        })
+    } else {
+        next()
+    }
+    } {
+    next() // make sure to always call next()!
+}
+})
+
 
 const app = new Vue({
     el: '#app',
-    router
+    router,
+    store
 });

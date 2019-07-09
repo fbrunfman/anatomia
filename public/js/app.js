@@ -1698,7 +1698,6 @@ module.exports = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Main_Page_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/Main-Page.vue */ "./resources/js/components/Main-Page.vue");
-/* harmony import */ var _components_Sidebar_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Sidebar.vue */ "./resources/js/components/Sidebar.vue");
 //
 //
 //
@@ -1707,12 +1706,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'App',
   components: {
-    'MainPage': _components_Main_Page_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+    MainPage: _components_Main_Page_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  computed: {
+    login: function login() {
+      return this.$store.state.login;
+    }
   }
 });
 
@@ -1845,15 +1848,31 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   computed: {
-    state: function state() {
-      return this.courseName.length;
+    token: function token() {
+      return this.$store.state.token;
     }
   },
   data: function data() {
     return {
+      chaptersVisible: true,
       course: [{
         name: '',
         lessons: [{
@@ -1900,6 +1919,9 @@ __webpack_require__.r(__webpack_exports__);
         }]
       });
     },
+    upDownChapters: function upDownChapters() {
+      this.chaptersVisible = !this.chaptersVisible;
+    },
     createChapter: function createChapter(k) {
       this.course[0].lessons[k].chapters.push({
         name: '',
@@ -1941,7 +1963,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     createCourse: function createCourse() {
       console.log(this.course[0]);
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.defaults.headers.common['Authorization'] = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImQwZGQ5ZGMwNjc4MzNiYmRlMmVjOGZjYzUzNDY4YjVjZjk2ODZlMmUxZmNmNjM5M2JhZjFiNWI2Yjk5NzA5ZTkzNzZlN2JhYzMzMjA4NGQxIn0.eyJhdWQiOiIyIiwianRpIjoiZDBkZDlkYzA2NzgzM2JiZGUyZWM4ZmNjNTM0NjhiNWNmOTY4NmUyZTFmY2Y2MzkzYmFmMWI1YjZiOTk3MDllOTM3NmU3YmFjMzMyMDg0ZDEiLCJpYXQiOjE1NjI2MDYxMDAsIm5iZiI6MTU2MjYwNjEwMCwiZXhwIjoxNTk0MjI4NTAwLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.HSwoS2qHiByQDt1hrV_VvVCZqvHMhEG3fIP3De7AYPrkcOB5t238Yr4amHM2GlX7jiIeam82unc3bSoPlreV-PG65jWqDGCDx95MT9Iax3o5hFI7P2Ct0Z_Umvj2t_IHb-KzHcU3SC3SPDaU1E6usFjaiBsSCjMBHYETlIP-_2YQWIwwxC4G0FeYSntsZwAo4Iaug830x4vcpnfZp5tx-g0euIWXvkMce2kx1_4nSsKnkMVJAuZColGw9yF2ZBBVsNZcxBK-he8i0TYoUgQQi7ChNqzpSL3EIWoyjbsF7DMbM7VQH5Y2OebniCnJ4y2KIgOWjiF6AIKT7F9vqtdZp6P4PavcT2upS4PYCo11-vdNpZDAAvNhJ17zy3rrC5-GOsnj7u_mmPc5ScHGsu3e7NRwArELJOL6_y6T8wy2lcJTw96R2C1bOyI6Q-Ja6Le0MdGGD_eWLfbj-INbbNq4JDogS42n4cMRxVdON6DxuwI906AjKnnLMbow9aYIxsr9esjJ7hngu_Yw5SJDYwpVD-kfo73EOZAjqF0mVq28eWEhzf9ONZZC26TOqhaqEvN87njLryK1DGewy4bVm4H8p0I6QEUq7PxNEfHa6iIj0yjY9fXdYmT1TJmmvXY3I-cZuG1-f7sCmQJn_TUtkIJ46M-VH-36ND0BCoeEJvDD7N8';
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.defaults.headers.common['Authorization'] = "Bearer ".concat(this.token, " ");
       var courseObject = {
         course: this.course
       };
@@ -1952,6 +1974,77 @@ __webpack_require__.r(__webpack_exports__);
         }
       }).then(function (response) {
         console.log('todo bien');
+      });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Login.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Login.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'Login',
+  data: function data() {
+    return {
+      username: '',
+      password: ''
+    };
+  },
+  mounted: function mounted() {
+    this.$store.commit('login', true);
+    this.$store.commit('paginaPrincipal', false);
+  },
+  methods: {
+    login: function login() {
+      var _this = this;
+
+      this.$store.dispatch('retrieveToken', {
+        username: this.username,
+        password: this.password
+      }).then(function (response) {
+        _this.$router.push('/');
+
+        _this.$store.commit('login', false);
+
+        _this.$store.commit('paginaPrincipal', true);
+
+        _this.$store.commit('infoUsuario', response.data.usuario);
+
+        localStorage.setItem('infoUsuario', JSON.stringify(response.data.usuario));
       });
     }
   }
@@ -1984,6 +2077,17 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     Sidebar: _Sidebar_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
+  computed: {
+    token: function token() {
+      return this.$store.state.token;
+    },
+    login: function login() {
+      return this.$store.state.login;
+    },
+    paginaPrincipal: function paginaPrincipal() {
+      return this.$store.state.paginaPrincipal;
+    }
+  },
   mounted: function mounted() {
     console.log('Component mounted.');
   }
@@ -2000,6 +2104,12 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2051,6 +2161,17 @@ __webpack_require__.r(__webpack_exports__);
           _this.showLink = true;
         }, 300);
       }
+    },
+    logout: function logout() {
+      var _this2 = this;
+
+      this.$store.dispatch('destroyToken').then(function (response) {
+        _this2.$router.push('/login');
+
+        _this2.$store.commit('login', true);
+
+        _this2.$store.commit('paginaPrincipal', false);
+      })["catch"](function (error) {});
     }
   }
 });
@@ -34725,12 +34846,13 @@ __webpack_require__(/*! ./_iter-define */ "./node_modules/core-js/library/module
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+var escape = __webpack_require__(/*! ../../node_modules/css-loader/lib/url/escape.js */ "./node_modules/css-loader/lib/url/escape.js");
 exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
 // imports
 
 
 // module
-exports.push([module.i, "body[data-v-f348271a] {\n  margin: 0;\n  padding: 0;\n}\n#app[data-v-f348271a] {\n  font-family: \"Anton\", Arial, Helvetica, sans-serif;\n  font-size: 1rem;\n  letter-spacing: 1px;\n  color: #322F42;\n  width: 100%;\n  min-height: 100vh;\n  background-size: cover;\n  overflow: hidden;\n}", ""]);
+exports.push([module.i, "body[data-v-f348271a] {\n  margin: 0;\n  padding: 0;\n}\n#app[data-v-f348271a] {\n  font-family: \"Anton\", Arial, Helvetica, sans-serif;\n  font-size: 1rem;\n  letter-spacing: 1px;\n  color: #322F42;\n  width: 100%;\n  min-height: 100vh;\n  overflow: hidden;\n  background-color: #67676794;\n  background-image: url(" + escape(__webpack_require__(/*! ./img/cubes.png */ "./resources/js/img/cubes.png")) + ");\n}\n.login[data-v-f348271a] {\n  background-color: #337957 !important;\n  background-image: url(" + escape(__webpack_require__(/*! ./img/black-linen.png */ "./resources/js/img/black-linen.png")) + ");\n}", ""]);
 
 // exports
 
@@ -34749,7 +34871,26 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".contenedor-create[data-v-67c71db2] {\n  max-width: 65;\n  width: 55vw;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n          flex-direction: column;\n}\ni.fas.fa-plus[data-v-67c71db2], .fa-minus[data-v-67c71db2] {\n  font-size: 1.5rem;\n  margin-left: 1.2rem;\n  cursor: pointer;\n}\n.crear-capitulo[data-v-67c71db2] {\n  margin-left: 4rem;\n}\n.crear-pantalla[data-v-67c71db2],\n.crear-pregunta[data-v-67c71db2] {\n  border: 3px solid grey;\n  padding: 15px;\n  border-radius: 10px;\n}", ""]);
+exports.push([module.i, ".contenedor-create[data-v-67c71db2] {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n          flex-direction: column;\n  border-right: 1px solid;\n  padding: 30px;\n  -webkit-box-align: center;\n          align-items: center;\n}\ni.fas.fa-plus[data-v-67c71db2], .fa-minus[data-v-67c71db2] {\n  font-size: 1.5rem;\n  margin-left: 1.2rem;\n  cursor: pointer;\n}\n.create h1[data-v-67c71db2] {\n  display: inline-block;\n  padding: 2rem;\n  background-color: #97b388;\n  color: white;\n}\n.crear-capitulo[data-v-67c71db2] {\n  margin-left: 4rem;\n}\n.crear-pantalla[data-v-67c71db2] {\n  padding: 2rem;\n  background: #dfecf7;\n}\n.crear-pregunta[data-v-67c71db2] {\n  padding: 2rem;\n  background: #c0c2c3;\n}\n.crear-respuesta[data-v-67c71db2] {\n  padding: 2rem;\n  background: #c5e8a2;\n}\n.main-container-course[data-v-67c71db2] {\n  display: grid;\n  grid-template-columns: 70% auto;\n}\n.create-body[data-v-67c71db2] {\n  width: 42vw;\n}\n.input-curso[data-v-67c71db2] {\n  background: #70c7af;\n  padding: 2rem;\n}\n.input-leccion[data-v-67c71db2] {\n  background: #5dafaf;\n  padding: 2rem;\n}\n.input-capitulo[data-v-67c71db2] {\n  padding: 2rem;\n  background: #9bd5ff;\n}\n.up-down[data-v-67c71db2] {\n  -webkit-transition: all 2s ease;\n  transition: all 2s ease;\n  cursor: pointer;\n  font-size: 1.5rem;\n}", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/lib/loader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Login.vue?vue&type=style&index=0&id=6bdc8b8e&lang=scss&scoped=true&":
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/lib/loader.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Login.vue?vue&type=style&index=0&id=6bdc8b8e&lang=scss&scoped=true& ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".login-container[data-v-6bdc8b8e] {\n  position: absolute;\n  top: 50%;\n  width: 30rem;\n  left: 50%;\n  -webkit-transform: translate(-50%, -50%);\n  transform: translate(-50%, -50%);\n  padding: 4rem;\n  padding-bottom: 8rem;\n  border-radius: 7px;\n  color: #525252;\n  -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%);\n  clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%);\n  background-color: #a9ceac;\n  background-image: linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px), linear-gradient(#eee 0.1em, transparent 0.1em);\n  background-size: 100% 1.2em;\n}\n.boton-login span[data-v-6bdc8b8e] {\n  font-size: 1.3rem;\n  background: #2e7a98;\n  padding: 10px;\n  color: white;\n  border-radius: 6px;\n  cursor: pointer;\n  box-shadow: 0 5px 10px #00000078;\n}\n.icono-user[data-v-6bdc8b8e],\n.icono-password[data-v-6bdc8b8e] {\n  background-color: #bbbbbb;\n  color: #777777;\n  height: 2.25rem;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-align: center;\n          align-items: center;\n  width: 3rem;\n  -webkit-box-pack: center;\n          justify-content: center;\n  border-radius: 3px 0px 0 3px;\n  font-size: 1.2rem;\n  box-shadow: 0 5px 10px #a7a0a0;\n}\ni.far.fa-user[data-v-6bdc8b8e],\n.fa-key[data-v-6bdc8b8e] {\n  position: relative;\n  left: 1.1px;\n}\n.icono-ingresar[data-v-6bdc8b8e] {\n  background: #58b158;\n  color: #ffffff;\n  height: 2.35rem;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-align: center;\n  align-items: center;\n  width: 3rem;\n  -webkit-box-pack: center;\n  justify-content: center;\n  border-radius: 0px 3px 3px 0px;\n  font-size: 1.2rem;\n  /* box-shadow: 0 5px 10px #a7a0a0; */\n  position: absolute;\n  right: 64px;\n  cursor: pointer;\n}\n.icono-ingresar i[data-v-6bdc8b8e] {\n  position: relative;\n  left: 2px;\n}\n.form-control[data-v-6bdc8b8e] {\n  border-radius: 0;\n}", ""]);
 
 // exports
 
@@ -34769,7 +34910,7 @@ exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Ant
 exports.push([module.i, "@import url(https://use.fontawesome.com/releases/v5.8.2/css/all.css);", ""]);
 
 // module
-exports.push([module.i, ".sidebar[data-v-13672230] {\n  position: relative;\n}\n.contenedor-general[data-v-13672230] {\n  width: 100vw;\n  display: grid;\n  grid-template-columns: 70px auto;\n}\n.sidebar[data-v-13672230] {\n  width: 70px;\n  height: calc(100vh - 10px);\n}\n.container-body[data-v-13672230] {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-pack: center;\n          justify-content: center;\n}", ""]);
+exports.push([module.i, ".sidebar[data-v-13672230] {\n  position: relative;\n}\n.contenedor-general[data-v-13672230] {\n  width: 100vw;\n  display: grid;\n  grid-template-columns: 70px auto;\n}\n.sidebar[data-v-13672230] {\n  width: 70px;\n  height: calc(100vh - 10px);\n}", ""]);
 
 // exports
 
@@ -34788,7 +34929,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".container[data-v-81fbb27e] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 70px;\n  padding: 10px;\n  min-height: calc(100vh - 10px);\n  background-color: #97b388;\n  border: solid #fff;\n  color: #3d4c4a;\n  border-width: 0 1px 0 0;\n  z-index: 999;\n  -webkit-transition: all 0.5s ease-in-out;\n  transition: all 0.5s ease-in-out;\n  box-shadow: 0 5px 16px #000000b8;\n}\n.container .control[data-v-81fbb27e] {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n          align-items: center;\n  width: 50px;\n  margin-bottom: 10px;\n}\n.container .control i[data-v-81fbb27e] {\n  font-size: 2rem;\n  cursor: pointer;\n  -webkit-transition: all 0.5s ease-in-out;\n  transition: all 0.5s ease-in-out;\n}\n.container.show[data-v-81fbb27e] {\n  width: 250px;\n}\n.container.show .control > i[data-v-81fbb27e] {\n  color: #fff;\n  -webkit-transform: rotateZ(-180deg);\n          transform: rotateZ(-180deg);\n}\n.container.show .navigation-icons[data-v-81fbb27e] {\n  color: #fff;\n}\n.container .navigation-icons[data-v-81fbb27e] {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n          align-items: center;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n          flex-direction: column;\n  width: 50px;\n  float: left;\n}\n.container .navigation-icons i[data-v-81fbb27e] {\n  font-size: 2rem;\n  padding: 10px 0;\n  cursor: pointer;\n  -webkit-transition: all 0.5s ease-in-out;\n  transition: all 0.5s ease-in-out;\n}\n.container .navigation-icons i[data-v-81fbb27e]:hover {\n  color: #fff;\n}\n.container .navigation-links[data-v-81fbb27e] {\n  padding-top: 14px;\n  float: left;\n}\n.container .navigation-links div[data-v-81fbb27e] {\n  font-size: 1.35rem;\n  padding-left: 10px;\n  margin-bottom: 19px;\n  cursor: pointer;\n}\n.container .navigation-links div[data-v-81fbb27e]:hover {\n  color: #fff;\n  -webkit-transition: 0.5s;\n  transition: 0.5s;\n}\n.fade-enter-active[data-v-81fbb27e]:nth-child(1), .fade-leave-active[data-v-81fbb27e]:nth-child(1) {\n  -webkit-transition: display 0.5s, -webkit-transform linear calc(.1s * 1);\n  transition: display 0.5s, -webkit-transform linear calc(.1s * 1);\n  transition: transform linear calc(.1s * 1), display 0.5s;\n  transition: transform linear calc(.1s * 1), display 0.5s, -webkit-transform linear calc(.1s * 1);\n}\n.fade-enter-active[data-v-81fbb27e]:nth-child(2), .fade-leave-active[data-v-81fbb27e]:nth-child(2) {\n  -webkit-transition: display 0.5s, -webkit-transform linear calc(.1s * 2);\n  transition: display 0.5s, -webkit-transform linear calc(.1s * 2);\n  transition: transform linear calc(.1s * 2), display 0.5s;\n  transition: transform linear calc(.1s * 2), display 0.5s, -webkit-transform linear calc(.1s * 2);\n}\n.fade-enter-active[data-v-81fbb27e]:nth-child(3), .fade-leave-active[data-v-81fbb27e]:nth-child(3) {\n  -webkit-transition: display 0.5s, -webkit-transform linear calc(.1s * 3);\n  transition: display 0.5s, -webkit-transform linear calc(.1s * 3);\n  transition: transform linear calc(.1s * 3), display 0.5s;\n  transition: transform linear calc(.1s * 3), display 0.5s, -webkit-transform linear calc(.1s * 3);\n}\n.fade-enter-active[data-v-81fbb27e]:nth-child(4), .fade-leave-active[data-v-81fbb27e]:nth-child(4) {\n  -webkit-transition: display 0.5s, -webkit-transform linear calc(.1s * 4);\n  transition: display 0.5s, -webkit-transform linear calc(.1s * 4);\n  transition: transform linear calc(.1s * 4), display 0.5s;\n  transition: transform linear calc(.1s * 4), display 0.5s, -webkit-transform linear calc(.1s * 4);\n}\n.fade-enter-active[data-v-81fbb27e]:nth-child(5), .fade-leave-active[data-v-81fbb27e]:nth-child(5) {\n  -webkit-transition: display 0.5s, -webkit-transform linear calc(.1s * 5);\n  transition: display 0.5s, -webkit-transform linear calc(.1s * 5);\n  transition: transform linear calc(.1s * 5), display 0.5s;\n  transition: transform linear calc(.1s * 5), display 0.5s, -webkit-transform linear calc(.1s * 5);\n}\n.fade-enter-active[data-v-81fbb27e]:nth-child(6), .fade-leave-active[data-v-81fbb27e]:nth-child(6) {\n  -webkit-transition: display 0.5s, -webkit-transform linear calc(.1s * 6);\n  transition: display 0.5s, -webkit-transform linear calc(.1s * 6);\n  transition: transform linear calc(.1s * 6), display 0.5s;\n  transition: transform linear calc(.1s * 6), display 0.5s, -webkit-transform linear calc(.1s * 6);\n}\n.fade-enter-active[data-v-81fbb27e]:nth-child(7), .fade-leave-active[data-v-81fbb27e]:nth-child(7) {\n  -webkit-transition: display 0.5s, -webkit-transform linear calc(.1s * 7);\n  transition: display 0.5s, -webkit-transform linear calc(.1s * 7);\n  transition: transform linear calc(.1s * 7), display 0.5s;\n  transition: transform linear calc(.1s * 7), display 0.5s, -webkit-transform linear calc(.1s * 7);\n}\n.fade-enter[data-v-81fbb27e], .fade-leave-to[data-v-81fbb27e] {\n  -webkit-transform: scale(0);\n          transform: scale(0);\n}", ""]);
+exports.push([module.i, ".container[data-v-81fbb27e] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 70px;\n  padding: 10px;\n  min-height: calc(100vh - 10px);\n  background-color: #97b388;\n  color: #3d4c4a;\n  border-width: 0 1px 0 0;\n  z-index: 999;\n  -webkit-transition: all 0.5s ease-in-out;\n  transition: all 0.5s ease-in-out;\n  box-shadow: 0 5px 16px #000000b8;\n}\n.container .control[data-v-81fbb27e] {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n          align-items: center;\n  width: 50px;\n  margin-bottom: 10px;\n}\n.container .control i[data-v-81fbb27e] {\n  font-size: 2rem;\n  cursor: pointer;\n  -webkit-transition: all 0.5s ease-in-out;\n  transition: all 0.5s ease-in-out;\n}\n.container.show[data-v-81fbb27e] {\n  width: 250px;\n}\n.container.show .control > i[data-v-81fbb27e] {\n  color: #fff;\n  -webkit-transform: rotateZ(-180deg);\n          transform: rotateZ(-180deg);\n}\n.container.show .navigation-icons[data-v-81fbb27e] {\n  color: #fff;\n}\n.container .navigation-icons[data-v-81fbb27e] {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n          align-items: center;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n          flex-direction: column;\n  width: 50px;\n  float: left;\n}\n.container .navigation-icons i[data-v-81fbb27e] {\n  font-size: 2rem;\n  padding: 10px 0;\n  cursor: pointer;\n  -webkit-transition: all 0.5s ease-in-out;\n  transition: all 0.5s ease-in-out;\n}\n.container .navigation-icons i[data-v-81fbb27e]:hover {\n  color: #fff;\n}\n.container .navigation-links[data-v-81fbb27e] {\n  padding-top: 14px;\n  float: left;\n}\n.container .navigation-links div[data-v-81fbb27e] {\n  font-size: 1.35rem;\n  padding-left: 10px;\n  margin-bottom: 19px;\n  cursor: pointer;\n}\n.container .navigation-links div[data-v-81fbb27e]:hover {\n  color: #fff;\n  -webkit-transition: 0.5s;\n  transition: 0.5s;\n}\n.fade-enter-active[data-v-81fbb27e]:nth-child(1), .fade-leave-active[data-v-81fbb27e]:nth-child(1) {\n  -webkit-transition: display 0.5s, -webkit-transform linear calc(.1s * 1);\n  transition: display 0.5s, -webkit-transform linear calc(.1s * 1);\n  transition: transform linear calc(.1s * 1), display 0.5s;\n  transition: transform linear calc(.1s * 1), display 0.5s, -webkit-transform linear calc(.1s * 1);\n}\n.fade-enter-active[data-v-81fbb27e]:nth-child(2), .fade-leave-active[data-v-81fbb27e]:nth-child(2) {\n  -webkit-transition: display 0.5s, -webkit-transform linear calc(.1s * 2);\n  transition: display 0.5s, -webkit-transform linear calc(.1s * 2);\n  transition: transform linear calc(.1s * 2), display 0.5s;\n  transition: transform linear calc(.1s * 2), display 0.5s, -webkit-transform linear calc(.1s * 2);\n}\n.fade-enter-active[data-v-81fbb27e]:nth-child(3), .fade-leave-active[data-v-81fbb27e]:nth-child(3) {\n  -webkit-transition: display 0.5s, -webkit-transform linear calc(.1s * 3);\n  transition: display 0.5s, -webkit-transform linear calc(.1s * 3);\n  transition: transform linear calc(.1s * 3), display 0.5s;\n  transition: transform linear calc(.1s * 3), display 0.5s, -webkit-transform linear calc(.1s * 3);\n}\n.fade-enter-active[data-v-81fbb27e]:nth-child(4), .fade-leave-active[data-v-81fbb27e]:nth-child(4) {\n  -webkit-transition: display 0.5s, -webkit-transform linear calc(.1s * 4);\n  transition: display 0.5s, -webkit-transform linear calc(.1s * 4);\n  transition: transform linear calc(.1s * 4), display 0.5s;\n  transition: transform linear calc(.1s * 4), display 0.5s, -webkit-transform linear calc(.1s * 4);\n}\n.fade-enter-active[data-v-81fbb27e]:nth-child(5), .fade-leave-active[data-v-81fbb27e]:nth-child(5) {\n  -webkit-transition: display 0.5s, -webkit-transform linear calc(.1s * 5);\n  transition: display 0.5s, -webkit-transform linear calc(.1s * 5);\n  transition: transform linear calc(.1s * 5), display 0.5s;\n  transition: transform linear calc(.1s * 5), display 0.5s, -webkit-transform linear calc(.1s * 5);\n}\n.fade-enter-active[data-v-81fbb27e]:nth-child(6), .fade-leave-active[data-v-81fbb27e]:nth-child(6) {\n  -webkit-transition: display 0.5s, -webkit-transform linear calc(.1s * 6);\n  transition: display 0.5s, -webkit-transform linear calc(.1s * 6);\n  transition: transform linear calc(.1s * 6), display 0.5s;\n  transition: transform linear calc(.1s * 6), display 0.5s, -webkit-transform linear calc(.1s * 6);\n}\n.fade-enter-active[data-v-81fbb27e]:nth-child(7), .fade-leave-active[data-v-81fbb27e]:nth-child(7) {\n  -webkit-transition: display 0.5s, -webkit-transform linear calc(.1s * 7);\n  transition: display 0.5s, -webkit-transform linear calc(.1s * 7);\n  transition: transform linear calc(.1s * 7), display 0.5s;\n  transition: transform linear calc(.1s * 7), display 0.5s, -webkit-transform linear calc(.1s * 7);\n}\n.fade-enter[data-v-81fbb27e], .fade-leave-to[data-v-81fbb27e] {\n  -webkit-transform: scale(0);\n          transform: scale(0);\n}\na[data-v-81fbb27e] {\n  color: inherit;\n  text-decoration: none;\n}\na[data-v-81fbb27e] :hover {\n  text-decoration: none;\n}", ""]);
 
 // exports
 
@@ -34915,6 +35056,33 @@ function toComment(sourceMap) {
 	var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
 
 	return '/*# ' + data + ' */';
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/lib/url/escape.js":
+/*!***************************************************!*\
+  !*** ./node_modules/css-loader/lib/url/escape.js ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = function escape(url) {
+    if (typeof url !== 'string') {
+        return url
+    }
+    // If url is already wrapped in quotes, remove them
+    if (/^['"].*['"]$/.test(url)) {
+        url = url.slice(1, -1);
+    }
+    // Should url be wrapped?
+    // See https://drafts.csswg.org/css-values-3/#urls
+    if (/["'() \t\n]/.test(url)) {
+        return '"' + url.replace(/"/g, '\\"').replace(/\n/g, '\\n') + '"'
+    }
+
+    return url
 }
 
 
@@ -66362,6 +66530,36 @@ if(false) {}
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/lib/loader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Login.vue?vue&type=style&index=0&id=6bdc8b8e&lang=scss&scoped=true&":
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/lib/loader.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Login.vue?vue&type=style&index=0&id=6bdc8b8e&lang=scss&scoped=true& ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../node_modules/css-loader!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--7-2!../../../node_modules/sass-loader/lib/loader.js??ref--7-3!../../../node_modules/vue-loader/lib??vue-loader-options!./Login.vue?vue&type=style&index=0&id=6bdc8b8e&lang=scss&scoped=true& */ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/lib/loader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Login.vue?vue&type=style&index=0&id=6bdc8b8e&lang=scss&scoped=true&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/lib/loader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Main-Page.vue?vue&type=style&index=0&id=13672230&lang=scss&scoped=true&":
 /*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/lib/loader.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Main-Page.vue?vue&type=style&index=0&id=13672230&lang=scss&scoped=true& ***!
@@ -67037,7 +67235,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { attrs: { id: "app" } }, [
+  return _c("div", { class: { login: _vm.login }, attrs: { id: "app" } }, [
     _c("div", { staticClass: "pagina-principal d-flex" }, [
       _c("div", { staticClass: "main-page" }, [_c("MainPage")], 1)
     ])
@@ -67065,473 +67263,561 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "contenedor-create " }, [
-    _vm._m(0),
-    _vm._v(" "),
-    _c(
-      "form",
-      {
-        ref: "formulario",
-        on: {
-          submit: function($event) {
-            $event.preventDefault()
-          }
-        }
-      },
-      [
+  return _c("div", { staticClass: "main-container-course" }, [
+    _c("div", { staticClass: "contenedor-create ml-3" }, [
+      _c("div", { staticClass: "create-body" }, [
+        _vm._m(0),
+        _vm._v(" "),
         _c(
-          "div",
-          { staticClass: "crear-curso" },
+          "form",
+          {
+            ref: "formulario",
+            on: {
+              submit: function($event) {
+                $event.preventDefault()
+              }
+            }
+          },
           [
             _c(
-              "b-form-group",
-              {
-                attrs: {
-                  id: "fieldset-1",
-                  label: "Nombre del curso",
-                  "label-for": "input-1"
-                }
-              },
+              "div",
+              { staticClass: "crear-curso" },
               [
                 _c(
-                  "div",
-                  { staticClass: "d-flex flex-row align-items-center" },
+                  "b-form-group",
+                  {
+                    staticClass: "input-curso",
+                    attrs: {
+                      id: "fieldset-1",
+                      label: "Nombre del curso",
+                      "label-for": "input-1"
+                    }
+                  },
                   [
-                    _c("b-form-input", {
-                      attrs: { id: "input-1", trim: "" },
-                      model: {
-                        value: _vm.course[0].name,
-                        callback: function($$v) {
-                          _vm.$set(_vm.course[0], "name", $$v)
-                        },
-                        expression: "course[0].name"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("i", {
-                      staticClass: "fas fa-plus",
-                      on: { click: _vm.createLesson }
-                    })
-                  ],
-                  1
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _vm._l(_vm.course[0].lessons, function(lesson, k) {
-              return _c(
-                "div",
-                { key: "lesson-" + k, staticClass: "crear-leccion ml-4" },
-                [
-                  _c(
-                    "b-form-group",
-                    {
-                      attrs: {
-                        id: "lesson-" + k,
-                        label: "Nombre de la lección",
-                        "label-for": "lesson-" + k
-                      }
-                    },
+                    _c(
+                      "div",
+                      { staticClass: "d-flex flex-row align-items-center" },
+                      [
+                        _c("b-form-input", {
+                          attrs: { id: "input-1", trim: "" },
+                          model: {
+                            value: _vm.course[0].name,
+                            callback: function($$v) {
+                              _vm.$set(_vm.course[0], "name", $$v)
+                            },
+                            expression: "course[0].name"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("i", {
+                          staticClass: "fas fa-plus",
+                          on: { click: _vm.createLesson }
+                        })
+                      ],
+                      1
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _vm._l(_vm.course[0].lessons, function(lesson, k) {
+                  return _c(
+                    "div",
+                    { key: "lesson-" + k, staticClass: "crear-leccion ml-4" },
                     [
                       _c(
-                        "div",
-                        { staticClass: "d-flex flex-row align-items-center" },
+                        "b-form-group",
+                        {
+                          staticClass: "input-leccion",
+                          attrs: {
+                            id: "lesson-" + k,
+                            label: "Nombre de la lección",
+                            "label-for": "lesson-" + k
+                          }
+                        },
                         [
-                          _c("b-form-input", {
-                            attrs: { id: "lesson-" + k, trim: "" },
-                            model: {
-                              value: _vm.course[0].lessons[k].name,
-                              callback: function($$v) {
-                                _vm.$set(_vm.course[0].lessons[k], "name", $$v)
-                              },
-                              expression: "course[0].lessons[k].name"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("i", {
-                            staticClass: "fas fa-plus",
-                            on: {
-                              click: function($event) {
-                                return _vm.createChapter(k)
-                              }
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("i", { staticClass: "fas fa-minus" })
-                        ],
-                        1
-                      )
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _vm._l(_vm.course[0].lessons[k].chapters, function(
-                    chapter,
-                    j
-                  ) {
-                    return _c(
-                      "div",
-                      { key: "chapter-" + j, staticClass: "crear-capitulo" },
-                      [
-                        _c(
-                          "b-form-group",
-                          {
-                            attrs: {
-                              id: "chapter-" + j,
-                              label: "Nombre del  capítulo",
-                              "label-for": "chapter-" + j
-                            }
-                          },
-                          [
-                            _c(
-                              "div",
-                              {
-                                staticClass:
-                                  "d-flex flex-row align-items-center"
-                              },
-                              [
-                                _c("b-form-input", {
-                                  attrs: { id: "chapter-" + j, trim: "" },
-                                  model: {
-                                    value:
-                                      _vm.course[0].lessons[k].chapters[j].name,
-                                    callback: function($$v) {
-                                      _vm.$set(
-                                        _vm.course[0].lessons[k].chapters[j],
-                                        "name",
-                                        $$v
-                                      )
-                                    },
-                                    expression:
-                                      "course[0].lessons[k].chapters[j].name"
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _c("i", {
-                                  staticClass: "fas fa-plus",
-                                  on: {
-                                    click: function($event) {
-                                      return _vm.createScreenQuestion(j, k)
-                                    }
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _c("i", { staticClass: "fas fa-minus" })
-                              ],
-                              1
-                            )
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _vm._l(
-                          _vm.course[0].lessons[k].chapters[j].screens,
-                          function(screen, l) {
-                            return _c(
-                              "div",
-                              {
-                                key: "screen-" + l,
-                                staticClass: "crear-pantalla ml-4 my-2"
-                              },
-                              [
-                                _c(
-                                  "b-form-group",
+                          _c(
+                            "div",
+                            {
+                              staticClass: "d-flex flex-row align-items-center"
+                            },
+                            [
+                              _c("i", {
+                                directives: [
                                   {
-                                    attrs: {
-                                      id: "screen-text-" + l,
-                                      label: "Nombre de la pantalla",
-                                      "label-for": "screen-text-" + l
-                                    }
+                                    name: "b-toggle",
+                                    rawName: "v-b-toggle.collapse-chapters",
+                                    modifiers: { "collapse-chapters": true }
+                                  }
+                                ],
+                                staticClass: "fas up-down mr-3",
+                                class: {
+                                  "fa-chevron-down": _vm.chaptersVisible,
+                                  "fa-chevron-up": !_vm.chaptersVisible
+                                },
+                                attrs: { variant: "primary" },
+                                on: { click: _vm.upDownChapters }
+                              }),
+                              _vm._v(" "),
+                              _c("b-form-input", {
+                                attrs: { id: "lesson-" + k, trim: "" },
+                                model: {
+                                  value: _vm.course[0].lessons[k].name,
+                                  callback: function($$v) {
+                                    _vm.$set(
+                                      _vm.course[0].lessons[k],
+                                      "name",
+                                      $$v
+                                    )
                                   },
-                                  [
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass:
-                                          "d-flex flex-row align-items-center"
-                                      },
-                                      [
-                                        _c("b-form-textarea", {
-                                          attrs: {
-                                            rows: "3",
-                                            "max-rows": "6",
-                                            id: "screen-text-" + l,
-                                            trim: ""
-                                          },
-                                          model: {
-                                            value:
+                                  expression: "course[0].lessons[k].name"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("i", {
+                                staticClass: "fas fa-plus",
+                                on: {
+                                  click: function($event) {
+                                    return _vm.createChapter(k)
+                                  }
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("i", { staticClass: "fas fa-minus" })
+                            ],
+                            1
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "b-collapse",
+                        { attrs: { visible: "", id: "collapse-chapters" } },
+                        _vm._l(_vm.course[0].lessons[k].chapters, function(
+                          chapter,
+                          j
+                        ) {
+                          return _c(
+                            "div",
+                            {
+                              key: "chapter-" + j,
+                              staticClass: "crear-capitulo"
+                            },
+                            [
+                              _c(
+                                "b-form-group",
+                                {
+                                  staticClass: "input-capitulo",
+                                  attrs: {
+                                    id: "chapter-" + j,
+                                    label: "Nombre del  capítulo",
+                                    "label-for": "chapter-" + j
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "d-flex flex-row align-items-center"
+                                    },
+                                    [
+                                      _c("b-form-input", {
+                                        attrs: { id: "chapter-" + j, trim: "" },
+                                        model: {
+                                          value:
+                                            _vm.course[0].lessons[k].chapters[j]
+                                              .name,
+                                          callback: function($$v) {
+                                            _vm.$set(
                                               _vm.course[0].lessons[k].chapters[
                                                 j
-                                              ].screens[l].text,
-                                            callback: function($$v) {
-                                              _vm.$set(
-                                                _vm.course[0].lessons[k]
-                                                  .chapters[j].screens[l],
-                                                "text",
-                                                $$v
-                                              )
-                                            },
-                                            expression:
-                                              "course[0].lessons[k].chapters[j].screens[l].text"
+                                              ],
+                                              "name",
+                                              $$v
+                                            )
+                                          },
+                                          expression:
+                                            "course[0].lessons[k].chapters[j].name"
+                                        }
+                                      }),
+                                      _vm._v(" "),
+                                      _c("i", {
+                                        staticClass: "fas fa-plus",
+                                        on: {
+                                          click: function($event) {
+                                            return _vm.createScreenQuestion(
+                                              j,
+                                              k
+                                            )
                                           }
-                                        })
-                                      ],
-                                      1
-                                    )
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "b-form-group",
-                                  {
-                                    attrs: {
-                                      id: "screen-order-" + l,
-                                      label: "Orden de la pantalla",
-                                      "label-for": "screen-order-" + l
-                                    }
-                                  },
-                                  [
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass:
-                                          "d-flex flex-row align-items-center"
-                                      },
-                                      [
-                                        _c("b-form-input", {
+                                        }
+                                      }),
+                                      _vm._v(" "),
+                                      _c("i", { staticClass: "fas fa-minus" })
+                                    ],
+                                    1
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _vm._l(
+                                _vm.course[0].lessons[k].chapters[j].screens,
+                                function(screen, l) {
+                                  return _c(
+                                    "div",
+                                    {
+                                      key: "screen-" + l,
+                                      staticClass: "crear-pantalla ml-4 my-2"
+                                    },
+                                    [
+                                      _c(
+                                        "b-form-group",
+                                        {
+                                          attrs: {
+                                            id: "screen-text-" + l,
+                                            label: "Nombre de la pantalla",
+                                            "label-for": "screen-text-" + l
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass:
+                                                "d-flex flex-row align-items-center"
+                                            },
+                                            [
+                                              _c("b-form-textarea", {
+                                                attrs: {
+                                                  rows: "3",
+                                                  "max-rows": "6",
+                                                  id: "screen-text-" + l,
+                                                  trim: ""
+                                                },
+                                                model: {
+                                                  value:
+                                                    _vm.course[0].lessons[k]
+                                                      .chapters[j].screens[l]
+                                                      .text,
+                                                  callback: function($$v) {
+                                                    _vm.$set(
+                                                      _vm.course[0].lessons[k]
+                                                        .chapters[j].screens[l],
+                                                      "text",
+                                                      $$v
+                                                    )
+                                                  },
+                                                  expression:
+                                                    "course[0].lessons[k].chapters[j].screens[l].text"
+                                                }
+                                              })
+                                            ],
+                                            1
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-group",
+                                        {
                                           attrs: {
                                             id: "screen-order-" + l,
-                                            type: "number",
-                                            trim: ""
-                                          },
-                                          model: {
-                                            value:
-                                              _vm.course[0].lessons[k].chapters[
-                                                j
-                                              ].screens[l].order,
-                                            callback: function($$v) {
-                                              _vm.$set(
-                                                _vm.course[0].lessons[k]
-                                                  .chapters[j].screens[l],
-                                                "order",
-                                                $$v
-                                              )
-                                            },
-                                            expression:
-                                              "course[0].lessons[k].chapters[j].screens[l].order"
+                                            label: "Orden de la pantalla",
+                                            "label-for": "screen-order-" + l
                                           }
-                                        })
-                                      ],
-                                      1
-                                    )
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "b-form-group",
-                                  {
-                                    attrs: {
-                                      id: "screen-url-" + l,
-                                      label: "Url de la imagen de la pantalla",
-                                      "label-for": "screen-url-" + l
-                                    }
-                                  },
-                                  [
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass:
-                                          "d-flex flex-row align-items-center"
-                                      },
-                                      [
-                                        _c("b-form-input", {
+                                        },
+                                        [
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass:
+                                                "d-flex flex-row align-items-center"
+                                            },
+                                            [
+                                              _c("b-form-input", {
+                                                attrs: {
+                                                  id: "screen-order-" + l,
+                                                  type: "number",
+                                                  trim: ""
+                                                },
+                                                model: {
+                                                  value:
+                                                    _vm.course[0].lessons[k]
+                                                      .chapters[j].screens[l]
+                                                      .order,
+                                                  callback: function($$v) {
+                                                    _vm.$set(
+                                                      _vm.course[0].lessons[k]
+                                                        .chapters[j].screens[l],
+                                                      "order",
+                                                      $$v
+                                                    )
+                                                  },
+                                                  expression:
+                                                    "course[0].lessons[k].chapters[j].screens[l].order"
+                                                }
+                                              })
+                                            ],
+                                            1
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-group",
+                                        {
                                           attrs: {
                                             id: "screen-url-" + l,
-                                            trim: ""
-                                          },
-                                          model: {
-                                            value:
-                                              _vm.course[0].lessons[k].chapters[
-                                                j
-                                              ].screens[l].image_url,
-                                            callback: function($$v) {
-                                              _vm.$set(
-                                                _vm.course[0].lessons[k]
-                                                  .chapters[j].screens[l],
-                                                "image_url",
-                                                $$v
-                                              )
-                                            },
-                                            expression:
-                                              "course[0].lessons[k].chapters[j].screens[l].image_url"
+                                            label:
+                                              "Url de la imagen de la pantalla",
+                                            "label-for": "screen-url-" + l
                                           }
-                                        })
-                                      ],
-                                      1
-                                    )
-                                  ]
-                                )
-                              ],
-                              1
-                            )
-                          }
-                        ),
-                        _vm._v(" "),
-                        _vm._l(
-                          _vm.course[0].lessons[k].chapters[j].questions,
-                          function(question, l) {
-                            return _c(
-                              "div",
-                              {
-                                key: "question-" + l,
-                                staticClass: "crear-pregunta ml-4 my-2"
-                              },
-                              [
-                                _c("div", { staticClass: "text-right" }, [
-                                  _c("i", {
-                                    staticClass: "fas fa-plus",
-                                    on: {
-                                      click: function($event) {
-                                        return _vm.createAnswer(l, j, k)
-                                      }
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("i", { staticClass: "fas fa-minus" })
-                                ]),
-                                _vm._v(" "),
-                                _c(
-                                  "b-form-group",
-                                  {
-                                    attrs: {
-                                      id: "question-text-" + l,
-                                      label: "Nombre de la pregunta",
-                                      "label-for": "question-text-" + l
-                                    }
-                                  },
-                                  [
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass:
-                                          "d-flex flex-row align-items-center"
-                                      },
-                                      [
-                                        _c("b-form-textarea", {
+                                        },
+                                        [
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass:
+                                                "d-flex flex-row align-items-center"
+                                            },
+                                            [
+                                              _c("b-form-input", {
+                                                attrs: {
+                                                  id: "screen-url-" + l,
+                                                  trim: ""
+                                                },
+                                                model: {
+                                                  value:
+                                                    _vm.course[0].lessons[k]
+                                                      .chapters[j].screens[l]
+                                                      .image_url,
+                                                  callback: function($$v) {
+                                                    _vm.$set(
+                                                      _vm.course[0].lessons[k]
+                                                        .chapters[j].screens[l],
+                                                      "image_url",
+                                                      $$v
+                                                    )
+                                                  },
+                                                  expression:
+                                                    "course[0].lessons[k].chapters[j].screens[l].image_url"
+                                                }
+                                              })
+                                            ],
+                                            1
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                }
+                              ),
+                              _vm._v(" "),
+                              _vm._l(
+                                _vm.course[0].lessons[k].chapters[j].questions,
+                                function(question, l) {
+                                  return _c(
+                                    "div",
+                                    {
+                                      key: "question-" + l,
+                                      staticClass: "crear-pregunta ml-4 my-2"
+                                    },
+                                    [
+                                      _c("div", { staticClass: "text-right" }, [
+                                        _c("i", {
+                                          staticClass: "fas fa-plus",
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.createAnswer(l, j, k)
+                                            }
+                                          }
+                                        }),
+                                        _vm._v(" "),
+                                        _c("i", { staticClass: "fas fa-minus" })
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-group",
+                                        {
                                           attrs: {
-                                            rows: "3",
-                                            "max-rows": "6",
                                             id: "question-text-" + l,
-                                            trim: ""
-                                          },
-                                          model: {
-                                            value:
-                                              _vm.course[0].lessons[k].chapters[
-                                                j
-                                              ].questions[l].name,
-                                            callback: function($$v) {
-                                              _vm.$set(
-                                                _vm.course[0].lessons[k]
-                                                  .chapters[j].questions[l],
-                                                "name",
-                                                $$v
-                                              )
-                                            },
-                                            expression:
-                                              "course[0].lessons[k].chapters[j].questions[l].name"
+                                            label: "Nombre de la pregunta",
+                                            "label-for": "question-text-" + l
                                           }
-                                        })
-                                      ],
-                                      1
-                                    )
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "b-form-group",
-                                  {
-                                    attrs: {
-                                      id: "question-order-" + l,
-                                      label: "Orden de la pregunta",
-                                      "label-for": "question-order-" + l
-                                    }
-                                  },
-                                  [
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass:
-                                          "d-flex flex-row align-items-center"
-                                      },
-                                      [
-                                        _c("b-form-input", {
+                                        },
+                                        [
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass:
+                                                "d-flex flex-row align-items-center"
+                                            },
+                                            [
+                                              _c("b-form-textarea", {
+                                                attrs: {
+                                                  rows: "3",
+                                                  "max-rows": "6",
+                                                  id: "question-text-" + l,
+                                                  trim: ""
+                                                },
+                                                model: {
+                                                  value:
+                                                    _vm.course[0].lessons[k]
+                                                      .chapters[j].questions[l]
+                                                      .name,
+                                                  callback: function($$v) {
+                                                    _vm.$set(
+                                                      _vm.course[0].lessons[k]
+                                                        .chapters[j].questions[
+                                                        l
+                                                      ],
+                                                      "name",
+                                                      $$v
+                                                    )
+                                                  },
+                                                  expression:
+                                                    "course[0].lessons[k].chapters[j].questions[l].name"
+                                                }
+                                              })
+                                            ],
+                                            1
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-group",
+                                        {
                                           attrs: {
                                             id: "question-order-" + l,
-                                            type: "number",
-                                            trim: ""
-                                          },
-                                          model: {
-                                            value:
-                                              _vm.course[0].lessons[k].chapters[
-                                                j
-                                              ].questions[l].order,
-                                            callback: function($$v) {
-                                              _vm.$set(
-                                                _vm.course[0].lessons[k]
-                                                  .chapters[j].questions[l],
-                                                "order",
-                                                $$v
-                                              )
-                                            },
-                                            expression:
-                                              "course[0].lessons[k].chapters[j].questions[l].order"
+                                            label: "Orden de la pregunta",
+                                            "label-for": "question-order-" + l
                                           }
-                                        })
-                                      ],
-                                      1
-                                    )
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _vm._l(
-                                  _vm.course[0].lessons[k].chapters[j]
-                                    .questions[l].answers,
-                                  function(answer, p) {
-                                    return _c(
-                                      "div",
-                                      {
-                                        key: "answer-" + p,
-                                        staticClass: "crear-respuesta ml-4 my-2"
-                                      },
-                                      [
-                                        _c(
-                                          "b-form-group",
-                                          {
-                                            attrs: {
-                                              id: "answer-text-" + p,
-                                              label: "Nombre de la respuesta",
-                                              "label-for": "answer-text-" + p
-                                            }
-                                          },
-                                          [
-                                            _c(
-                                              "div",
-                                              {
-                                                staticClass:
-                                                  "d-flex flex-row align-items-center"
-                                              },
-                                              [
-                                                _c("b-form-textarea", {
-                                                  attrs: {
-                                                    rows: "3",
-                                                    "max-rows": "6",
-                                                    id: "answer-text-" + l,
-                                                    trim: ""
+                                        },
+                                        [
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass:
+                                                "d-flex flex-row align-items-center"
+                                            },
+                                            [
+                                              _c("b-form-input", {
+                                                attrs: {
+                                                  id: "question-order-" + l,
+                                                  type: "number",
+                                                  trim: ""
+                                                },
+                                                model: {
+                                                  value:
+                                                    _vm.course[0].lessons[k]
+                                                      .chapters[j].questions[l]
+                                                      .order,
+                                                  callback: function($$v) {
+                                                    _vm.$set(
+                                                      _vm.course[0].lessons[k]
+                                                        .chapters[j].questions[
+                                                        l
+                                                      ],
+                                                      "order",
+                                                      $$v
+                                                    )
                                                   },
+                                                  expression:
+                                                    "course[0].lessons[k].chapters[j].questions[l].order"
+                                                }
+                                              })
+                                            ],
+                                            1
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _vm._l(
+                                        _vm.course[0].lessons[k].chapters[j]
+                                          .questions[l].answers,
+                                        function(answer, p) {
+                                          return _c(
+                                            "div",
+                                            {
+                                              key: "answer-" + p,
+                                              staticClass:
+                                                "crear-respuesta ml-4 my-2"
+                                            },
+                                            [
+                                              _c(
+                                                "b-form-group",
+                                                {
+                                                  attrs: {
+                                                    id: "answer-text-" + p,
+                                                    label:
+                                                      "Nombre de la respuesta",
+                                                    "label-for":
+                                                      "answer-text-" + p
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "div",
+                                                    {
+                                                      staticClass:
+                                                        "d-flex flex-row align-items-center"
+                                                    },
+                                                    [
+                                                      _c("b-form-textarea", {
+                                                        attrs: {
+                                                          rows: "3",
+                                                          "max-rows": "6",
+                                                          id:
+                                                            "answer-text-" + l,
+                                                          trim: ""
+                                                        },
+                                                        model: {
+                                                          value:
+                                                            _vm.course[0]
+                                                              .lessons[k]
+                                                              .chapters[j]
+                                                              .questions[l]
+                                                              .answers[p].name,
+                                                          callback: function(
+                                                            $$v
+                                                          ) {
+                                                            _vm.$set(
+                                                              _vm.course[0]
+                                                                .lessons[k]
+                                                                .chapters[j]
+                                                                .questions[l]
+                                                                .answers[p],
+                                                              "name",
+                                                              $$v
+                                                            )
+                                                          },
+                                                          expression:
+                                                            "course[0].lessons[k].chapters[j].questions[l].answers[p].name"
+                                                        }
+                                                      })
+                                                    ],
+                                                    1
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c("span", [
+                                                _vm._v(
+                                                  "Respuesta falsa o verdadera"
+                                                )
+                                              ]),
+                                              _vm._v(" "),
+                                              _c(
+                                                "b-form-select",
+                                                {
                                                   model: {
                                                     value:
                                                       _vm.course[0].lessons[k]
                                                         .chapters[j].questions[
                                                         l
-                                                      ].answers[p].name,
+                                                      ].answers[p].is_correct,
                                                     callback: function($$v) {
                                                       _vm.$set(
                                                         _vm.course[0].lessons[k]
@@ -67539,86 +67825,61 @@ var render = function() {
                                                           .questions[l].answers[
                                                           p
                                                         ],
-                                                        "name",
+                                                        "is_correct",
                                                         $$v
                                                       )
                                                     },
                                                     expression:
-                                                      "course[0].lessons[k].chapters[j].questions[l].answers[p].name"
+                                                      "course[0].lessons[k].chapters[j].questions[l].answers[p].is_correct"
                                                   }
-                                                })
-                                              ],
-                                              1
-                                            )
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _c("span", [
-                                          _vm._v("Respuesta falsa o verdadera")
-                                        ]),
-                                        _vm._v(" "),
-                                        _c(
-                                          "b-form-select",
-                                          {
-                                            model: {
-                                              value:
-                                                _vm.course[0].lessons[k]
-                                                  .chapters[j].questions[l]
-                                                  .answers[p].is_correct,
-                                              callback: function($$v) {
-                                                _vm.$set(
-                                                  _vm.course[0].lessons[k]
-                                                    .chapters[j].questions[l]
-                                                    .answers[p],
-                                                  "is_correct",
-                                                  $$v
-                                                )
-                                              },
-                                              expression:
-                                                "course[0].lessons[k].chapters[j].questions[l].answers[p].is_correct"
-                                            }
-                                          },
-                                          [
-                                            _c(
-                                              "option",
-                                              { attrs: { value: "0" } },
-                                              [_vm._v("Falsa")]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "option",
-                                              { attrs: { value: "1" } },
-                                              [_vm._v("Verdadera")]
-                                            )
-                                          ]
-                                        )
-                                      ],
-                                      1
-                                    )
-                                  }
-                                )
-                              ],
-                              2
-                            )
-                          }
-                        )
-                      ],
-                      2
-                    )
-                  })
-                ],
-                2
-              )
-            })
-          ],
-          2
-        ),
-        _vm._v(" "),
-        _c("button", { on: { click: _vm.createCourse } }, [
-          _vm._v("Guardar curso")
-        ])
-      ]
-    )
+                                                },
+                                                [
+                                                  _c(
+                                                    "option",
+                                                    { attrs: { value: "0" } },
+                                                    [_vm._v("Falsa")]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "option",
+                                                    { attrs: { value: "1" } },
+                                                    [_vm._v("Verdadera")]
+                                                  )
+                                                ]
+                                              )
+                                            ],
+                                            1
+                                          )
+                                        }
+                                      )
+                                    ],
+                                    2
+                                  )
+                                }
+                              )
+                            ],
+                            2
+                          )
+                        }),
+                        0
+                      )
+                    ],
+                    1
+                  )
+                })
+              ],
+              2
+            ),
+            _vm._v(" "),
+            _c("button", { on: { click: _vm.createCourse } }, [
+              _vm._v("Guardar curso")
+            ])
+          ]
+        )
+      ])
+    ]),
+    _vm._v(" "),
+    _vm._m(1)
   ])
 }
 var staticRenderFns = [
@@ -67626,8 +67887,117 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "create" }, [
-      _c("h1", [_vm._v("Crear curso")])
+    return _c(
+      "div",
+      { staticClass: "create text-center d-flex justify-content-center" },
+      [_c("h1", [_vm._v("Crear curso")])]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "contenedor-review-course" }, [
+      _c("h2", [_vm._v("hola")])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Login.vue?vue&type=template&id=6bdc8b8e&scoped=true&":
+/*!********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Login.vue?vue&type=template&id=6bdc8b8e&scoped=true& ***!
+  \********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "login-body" }, [
+    _c("div", { staticClass: "login-container" }, [
+      _c("form", { attrs: { action: "" } }, [
+        _c("div", { staticClass: "login-input" }, [
+          _c(
+            "div",
+            { staticClass: "usuario d-flex align-items-center" },
+            [
+              _vm._m(0),
+              _vm._v(" "),
+              _c("b-form-input", {
+                attrs: { placeholder: "Usuario" },
+                model: {
+                  value: _vm.username,
+                  callback: function($$v) {
+                    _vm.username = $$v
+                  },
+                  expression: "username"
+                }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "password my-3 d-flex align-items-center" },
+            [
+              _vm._m(1),
+              _vm._v(" "),
+              _c("b-form-input", {
+                attrs: {
+                  type: "password",
+                  placeholder: "Contraseña",
+                  id: "password",
+                  trim: ""
+                },
+                model: {
+                  value: _vm.password,
+                  callback: function($$v) {
+                    _vm.password = $$v
+                  },
+                  expression: "password"
+                }
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "icono-ingresar" }, [
+                _c("i", {
+                  staticClass: "fas fa-chevron-right",
+                  on: { click: _vm.login }
+                })
+              ])
+            ],
+            1
+          )
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "icono-user" }, [
+      _c("i", { staticClass: "far fa-user" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "icono-password" }, [
+      _c("i", { staticClass: "fas fa-key" })
     ])
   }
 ]
@@ -67653,7 +68023,9 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "contenedor-general" }, [
-    _c("div", { staticClass: "sidebar" }, [_c("Sidebar")], 1),
+    !_vm.login && _vm.paginaPrincipal
+      ? _c("div", { staticClass: "sidebar" }, [_c("Sidebar")], 1)
+      : _vm._e(),
     _vm._v(" "),
     _c("div", { staticClass: "container-body" }, [_c("router-view")], 1)
   ])
@@ -67722,153 +68094,148 @@ var render = function() {
         })
       ]),
       _vm._v(" "),
-      _vm._m(0),
+      _c(
+        "div",
+        { staticClass: "navigation-icons" },
+        [
+          _c("i", { staticClass: "fas fa-user" }),
+          _vm._v(" "),
+          _c("router-link", { attrs: { to: "/" } }, [
+            _c("i", { staticClass: "fas fa-home" })
+          ]),
+          _vm._v(" "),
+          _c("router-link", { attrs: { to: "create-course" } }, [
+            _c("i", { staticClass: "fas fa-plus" })
+          ]),
+          _vm._v(" "),
+          _c("i", { staticClass: "fas fa-edit" }),
+          _vm._v(" "),
+          _c("i", { staticClass: "fas fa-headset" }),
+          _vm._v(" "),
+          _c("i", {
+            staticClass: "fas fa-power-off",
+            on: { click: _vm.logout }
+          })
+        ],
+        1
+      ),
       _vm._v(" "),
       _c(
         "div",
         { staticClass: "navigation-links" },
         [
-          _c("transition-group", { attrs: { name: "fade" } }, [
-            _c(
-              "div",
-              {
-                directives: [
+          _c(
+            "transition-group",
+            { attrs: { name: "fade" } },
+            [
+              _c(
+                "div",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.showLink,
+                      expression: "showLink"
+                    }
+                  ],
+                  key: "1"
+                },
+                [_vm._v("Perfil")]
+              ),
+              _vm._v(" "),
+              _c("router-link", { key: "2", attrs: { to: "/" } }, [
+                _c(
+                  "div",
                   {
-                    name: "show",
-                    rawName: "v-show",
-                    value: _vm.showLink,
-                    expression: "showLink"
-                  }
-                ],
-                key: "1"
-              },
-              [_vm._v("Usuario")]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                directives: [
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.showLink,
+                        expression: "showLink"
+                      }
+                    ]
+                  },
+                  [_vm._v("Inicio")]
+                )
+              ]),
+              _vm._v(" "),
+              _c("router-link", { key: "4", attrs: { to: "create-course" } }, [
+                _c(
+                  "div",
                   {
-                    name: "show",
-                    rawName: "v-show",
-                    value: _vm.showLink,
-                    expression: "showLink"
-                  }
-                ],
-                key: "2"
-              },
-              [_vm._v("Inicio")]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                directives: [
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: _vm.showLink,
-                    expression: "showLink"
-                  }
-                ],
-                key: "3"
-              },
-              [_vm._v("Dashboard")]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                directives: [
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: _vm.showLink,
-                    expression: "showLink"
-                  }
-                ],
-                key: "4"
-              },
-              [_vm._v("Crear cursos")]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                directives: [
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: _vm.showLink,
-                    expression: "showLink"
-                  }
-                ],
-                key: "5"
-              },
-              [_vm._v("Editar cursos")]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                directives: [
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: _vm.showLink,
-                    expression: "showLink"
-                  }
-                ],
-                key: "6"
-              },
-              [_vm._v("Soporte")]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                directives: [
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: _vm.showLink,
-                    expression: "showLink"
-                  }
-                ],
-                key: "7"
-              },
-              [_vm._v("Logout")]
-            )
-          ])
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.showLink,
+                        expression: "showLink"
+                      }
+                    ]
+                  },
+                  [_vm._v("Crear cursos")]
+                )
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.showLink,
+                      expression: "showLink"
+                    }
+                  ],
+                  key: "5"
+                },
+                [_vm._v("Editar cursos")]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.showLink,
+                      expression: "showLink"
+                    }
+                  ],
+                  key: "6"
+                },
+                [_vm._v("Soporte")]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.showLink,
+                      expression: "showLink"
+                    }
+                  ],
+                  key: "7",
+                  on: { click: _vm.logout }
+                },
+                [_vm._v("Logout")]
+              )
+            ],
+            1
+          )
         ],
         1
       )
     ]
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "navigation-icons" }, [
-      _c("i", { staticClass: "fas fa-user" }),
-      _vm._v(" "),
-      _c("i", { staticClass: "fas fa-home" }),
-      _vm._v(" "),
-      _c("i", { staticClass: "fas fa-window-restore" }),
-      _vm._v(" "),
-      _c("i", { staticClass: "fas fa-plus" }),
-      _vm._v(" "),
-      _c("i", { staticClass: "fas fa-edit" }),
-      _vm._v(" "),
-      _c("i", { staticClass: "fas fa-headset" }),
-      _vm._v(" "),
-      _c("i", { staticClass: "fas fa-power-off" })
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -82634,6 +83001,1037 @@ if (false) {} else {
 
 /***/ }),
 
+/***/ "./node_modules/vuex/dist/vuex.esm.js":
+/*!********************************************!*\
+  !*** ./node_modules/vuex/dist/vuex.esm.js ***!
+  \********************************************/
+/*! exports provided: default, Store, install, mapState, mapMutations, mapGetters, mapActions, createNamespacedHelpers */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* WEBPACK VAR INJECTION */(function(global) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Store", function() { return Store; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "install", function() { return install; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mapState", function() { return mapState; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mapMutations", function() { return mapMutations; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mapGetters", function() { return mapGetters; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mapActions", function() { return mapActions; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createNamespacedHelpers", function() { return createNamespacedHelpers; });
+/**
+ * vuex v3.1.1
+ * (c) 2019 Evan You
+ * @license MIT
+ */
+function applyMixin (Vue) {
+  var version = Number(Vue.version.split('.')[0]);
+
+  if (version >= 2) {
+    Vue.mixin({ beforeCreate: vuexInit });
+  } else {
+    // override init and inject vuex init procedure
+    // for 1.x backwards compatibility.
+    var _init = Vue.prototype._init;
+    Vue.prototype._init = function (options) {
+      if ( options === void 0 ) options = {};
+
+      options.init = options.init
+        ? [vuexInit].concat(options.init)
+        : vuexInit;
+      _init.call(this, options);
+    };
+  }
+
+  /**
+   * Vuex init hook, injected into each instances init hooks list.
+   */
+
+  function vuexInit () {
+    var options = this.$options;
+    // store injection
+    if (options.store) {
+      this.$store = typeof options.store === 'function'
+        ? options.store()
+        : options.store;
+    } else if (options.parent && options.parent.$store) {
+      this.$store = options.parent.$store;
+    }
+  }
+}
+
+var target = typeof window !== 'undefined'
+  ? window
+  : typeof global !== 'undefined'
+    ? global
+    : {};
+var devtoolHook = target.__VUE_DEVTOOLS_GLOBAL_HOOK__;
+
+function devtoolPlugin (store) {
+  if (!devtoolHook) { return }
+
+  store._devtoolHook = devtoolHook;
+
+  devtoolHook.emit('vuex:init', store);
+
+  devtoolHook.on('vuex:travel-to-state', function (targetState) {
+    store.replaceState(targetState);
+  });
+
+  store.subscribe(function (mutation, state) {
+    devtoolHook.emit('vuex:mutation', mutation, state);
+  });
+}
+
+/**
+ * Get the first item that pass the test
+ * by second argument function
+ *
+ * @param {Array} list
+ * @param {Function} f
+ * @return {*}
+ */
+
+/**
+ * forEach for object
+ */
+function forEachValue (obj, fn) {
+  Object.keys(obj).forEach(function (key) { return fn(obj[key], key); });
+}
+
+function isObject (obj) {
+  return obj !== null && typeof obj === 'object'
+}
+
+function isPromise (val) {
+  return val && typeof val.then === 'function'
+}
+
+function assert (condition, msg) {
+  if (!condition) { throw new Error(("[vuex] " + msg)) }
+}
+
+function partial (fn, arg) {
+  return function () {
+    return fn(arg)
+  }
+}
+
+// Base data struct for store's module, package with some attribute and method
+var Module = function Module (rawModule, runtime) {
+  this.runtime = runtime;
+  // Store some children item
+  this._children = Object.create(null);
+  // Store the origin module object which passed by programmer
+  this._rawModule = rawModule;
+  var rawState = rawModule.state;
+
+  // Store the origin module's state
+  this.state = (typeof rawState === 'function' ? rawState() : rawState) || {};
+};
+
+var prototypeAccessors = { namespaced: { configurable: true } };
+
+prototypeAccessors.namespaced.get = function () {
+  return !!this._rawModule.namespaced
+};
+
+Module.prototype.addChild = function addChild (key, module) {
+  this._children[key] = module;
+};
+
+Module.prototype.removeChild = function removeChild (key) {
+  delete this._children[key];
+};
+
+Module.prototype.getChild = function getChild (key) {
+  return this._children[key]
+};
+
+Module.prototype.update = function update (rawModule) {
+  this._rawModule.namespaced = rawModule.namespaced;
+  if (rawModule.actions) {
+    this._rawModule.actions = rawModule.actions;
+  }
+  if (rawModule.mutations) {
+    this._rawModule.mutations = rawModule.mutations;
+  }
+  if (rawModule.getters) {
+    this._rawModule.getters = rawModule.getters;
+  }
+};
+
+Module.prototype.forEachChild = function forEachChild (fn) {
+  forEachValue(this._children, fn);
+};
+
+Module.prototype.forEachGetter = function forEachGetter (fn) {
+  if (this._rawModule.getters) {
+    forEachValue(this._rawModule.getters, fn);
+  }
+};
+
+Module.prototype.forEachAction = function forEachAction (fn) {
+  if (this._rawModule.actions) {
+    forEachValue(this._rawModule.actions, fn);
+  }
+};
+
+Module.prototype.forEachMutation = function forEachMutation (fn) {
+  if (this._rawModule.mutations) {
+    forEachValue(this._rawModule.mutations, fn);
+  }
+};
+
+Object.defineProperties( Module.prototype, prototypeAccessors );
+
+var ModuleCollection = function ModuleCollection (rawRootModule) {
+  // register root module (Vuex.Store options)
+  this.register([], rawRootModule, false);
+};
+
+ModuleCollection.prototype.get = function get (path) {
+  return path.reduce(function (module, key) {
+    return module.getChild(key)
+  }, this.root)
+};
+
+ModuleCollection.prototype.getNamespace = function getNamespace (path) {
+  var module = this.root;
+  return path.reduce(function (namespace, key) {
+    module = module.getChild(key);
+    return namespace + (module.namespaced ? key + '/' : '')
+  }, '')
+};
+
+ModuleCollection.prototype.update = function update$1 (rawRootModule) {
+  update([], this.root, rawRootModule);
+};
+
+ModuleCollection.prototype.register = function register (path, rawModule, runtime) {
+    var this$1 = this;
+    if ( runtime === void 0 ) runtime = true;
+
+  if (true) {
+    assertRawModule(path, rawModule);
+  }
+
+  var newModule = new Module(rawModule, runtime);
+  if (path.length === 0) {
+    this.root = newModule;
+  } else {
+    var parent = this.get(path.slice(0, -1));
+    parent.addChild(path[path.length - 1], newModule);
+  }
+
+  // register nested modules
+  if (rawModule.modules) {
+    forEachValue(rawModule.modules, function (rawChildModule, key) {
+      this$1.register(path.concat(key), rawChildModule, runtime);
+    });
+  }
+};
+
+ModuleCollection.prototype.unregister = function unregister (path) {
+  var parent = this.get(path.slice(0, -1));
+  var key = path[path.length - 1];
+  if (!parent.getChild(key).runtime) { return }
+
+  parent.removeChild(key);
+};
+
+function update (path, targetModule, newModule) {
+  if (true) {
+    assertRawModule(path, newModule);
+  }
+
+  // update target module
+  targetModule.update(newModule);
+
+  // update nested modules
+  if (newModule.modules) {
+    for (var key in newModule.modules) {
+      if (!targetModule.getChild(key)) {
+        if (true) {
+          console.warn(
+            "[vuex] trying to add a new module '" + key + "' on hot reloading, " +
+            'manual reload is needed'
+          );
+        }
+        return
+      }
+      update(
+        path.concat(key),
+        targetModule.getChild(key),
+        newModule.modules[key]
+      );
+    }
+  }
+}
+
+var functionAssert = {
+  assert: function (value) { return typeof value === 'function'; },
+  expected: 'function'
+};
+
+var objectAssert = {
+  assert: function (value) { return typeof value === 'function' ||
+    (typeof value === 'object' && typeof value.handler === 'function'); },
+  expected: 'function or object with "handler" function'
+};
+
+var assertTypes = {
+  getters: functionAssert,
+  mutations: functionAssert,
+  actions: objectAssert
+};
+
+function assertRawModule (path, rawModule) {
+  Object.keys(assertTypes).forEach(function (key) {
+    if (!rawModule[key]) { return }
+
+    var assertOptions = assertTypes[key];
+
+    forEachValue(rawModule[key], function (value, type) {
+      assert(
+        assertOptions.assert(value),
+        makeAssertionMessage(path, key, type, value, assertOptions.expected)
+      );
+    });
+  });
+}
+
+function makeAssertionMessage (path, key, type, value, expected) {
+  var buf = key + " should be " + expected + " but \"" + key + "." + type + "\"";
+  if (path.length > 0) {
+    buf += " in module \"" + (path.join('.')) + "\"";
+  }
+  buf += " is " + (JSON.stringify(value)) + ".";
+  return buf
+}
+
+var Vue; // bind on install
+
+var Store = function Store (options) {
+  var this$1 = this;
+  if ( options === void 0 ) options = {};
+
+  // Auto install if it is not done yet and `window` has `Vue`.
+  // To allow users to avoid auto-installation in some cases,
+  // this code should be placed here. See #731
+  if (!Vue && typeof window !== 'undefined' && window.Vue) {
+    install(window.Vue);
+  }
+
+  if (true) {
+    assert(Vue, "must call Vue.use(Vuex) before creating a store instance.");
+    assert(typeof Promise !== 'undefined', "vuex requires a Promise polyfill in this browser.");
+    assert(this instanceof Store, "store must be called with the new operator.");
+  }
+
+  var plugins = options.plugins; if ( plugins === void 0 ) plugins = [];
+  var strict = options.strict; if ( strict === void 0 ) strict = false;
+
+  // store internal state
+  this._committing = false;
+  this._actions = Object.create(null);
+  this._actionSubscribers = [];
+  this._mutations = Object.create(null);
+  this._wrappedGetters = Object.create(null);
+  this._modules = new ModuleCollection(options);
+  this._modulesNamespaceMap = Object.create(null);
+  this._subscribers = [];
+  this._watcherVM = new Vue();
+
+  // bind commit and dispatch to self
+  var store = this;
+  var ref = this;
+  var dispatch = ref.dispatch;
+  var commit = ref.commit;
+  this.dispatch = function boundDispatch (type, payload) {
+    return dispatch.call(store, type, payload)
+  };
+  this.commit = function boundCommit (type, payload, options) {
+    return commit.call(store, type, payload, options)
+  };
+
+  // strict mode
+  this.strict = strict;
+
+  var state = this._modules.root.state;
+
+  // init root module.
+  // this also recursively registers all sub-modules
+  // and collects all module getters inside this._wrappedGetters
+  installModule(this, state, [], this._modules.root);
+
+  // initialize the store vm, which is responsible for the reactivity
+  // (also registers _wrappedGetters as computed properties)
+  resetStoreVM(this, state);
+
+  // apply plugins
+  plugins.forEach(function (plugin) { return plugin(this$1); });
+
+  var useDevtools = options.devtools !== undefined ? options.devtools : Vue.config.devtools;
+  if (useDevtools) {
+    devtoolPlugin(this);
+  }
+};
+
+var prototypeAccessors$1 = { state: { configurable: true } };
+
+prototypeAccessors$1.state.get = function () {
+  return this._vm._data.$$state
+};
+
+prototypeAccessors$1.state.set = function (v) {
+  if (true) {
+    assert(false, "use store.replaceState() to explicit replace store state.");
+  }
+};
+
+Store.prototype.commit = function commit (_type, _payload, _options) {
+    var this$1 = this;
+
+  // check object-style commit
+  var ref = unifyObjectStyle(_type, _payload, _options);
+    var type = ref.type;
+    var payload = ref.payload;
+    var options = ref.options;
+
+  var mutation = { type: type, payload: payload };
+  var entry = this._mutations[type];
+  if (!entry) {
+    if (true) {
+      console.error(("[vuex] unknown mutation type: " + type));
+    }
+    return
+  }
+  this._withCommit(function () {
+    entry.forEach(function commitIterator (handler) {
+      handler(payload);
+    });
+  });
+  this._subscribers.forEach(function (sub) { return sub(mutation, this$1.state); });
+
+  if (
+     true &&
+    options && options.silent
+  ) {
+    console.warn(
+      "[vuex] mutation type: " + type + ". Silent option has been removed. " +
+      'Use the filter functionality in the vue-devtools'
+    );
+  }
+};
+
+Store.prototype.dispatch = function dispatch (_type, _payload) {
+    var this$1 = this;
+
+  // check object-style dispatch
+  var ref = unifyObjectStyle(_type, _payload);
+    var type = ref.type;
+    var payload = ref.payload;
+
+  var action = { type: type, payload: payload };
+  var entry = this._actions[type];
+  if (!entry) {
+    if (true) {
+      console.error(("[vuex] unknown action type: " + type));
+    }
+    return
+  }
+
+  try {
+    this._actionSubscribers
+      .filter(function (sub) { return sub.before; })
+      .forEach(function (sub) { return sub.before(action, this$1.state); });
+  } catch (e) {
+    if (true) {
+      console.warn("[vuex] error in before action subscribers: ");
+      console.error(e);
+    }
+  }
+
+  var result = entry.length > 1
+    ? Promise.all(entry.map(function (handler) { return handler(payload); }))
+    : entry[0](payload);
+
+  return result.then(function (res) {
+    try {
+      this$1._actionSubscribers
+        .filter(function (sub) { return sub.after; })
+        .forEach(function (sub) { return sub.after(action, this$1.state); });
+    } catch (e) {
+      if (true) {
+        console.warn("[vuex] error in after action subscribers: ");
+        console.error(e);
+      }
+    }
+    return res
+  })
+};
+
+Store.prototype.subscribe = function subscribe (fn) {
+  return genericSubscribe(fn, this._subscribers)
+};
+
+Store.prototype.subscribeAction = function subscribeAction (fn) {
+  var subs = typeof fn === 'function' ? { before: fn } : fn;
+  return genericSubscribe(subs, this._actionSubscribers)
+};
+
+Store.prototype.watch = function watch (getter, cb, options) {
+    var this$1 = this;
+
+  if (true) {
+    assert(typeof getter === 'function', "store.watch only accepts a function.");
+  }
+  return this._watcherVM.$watch(function () { return getter(this$1.state, this$1.getters); }, cb, options)
+};
+
+Store.prototype.replaceState = function replaceState (state) {
+    var this$1 = this;
+
+  this._withCommit(function () {
+    this$1._vm._data.$$state = state;
+  });
+};
+
+Store.prototype.registerModule = function registerModule (path, rawModule, options) {
+    if ( options === void 0 ) options = {};
+
+  if (typeof path === 'string') { path = [path]; }
+
+  if (true) {
+    assert(Array.isArray(path), "module path must be a string or an Array.");
+    assert(path.length > 0, 'cannot register the root module by using registerModule.');
+  }
+
+  this._modules.register(path, rawModule);
+  installModule(this, this.state, path, this._modules.get(path), options.preserveState);
+  // reset store to update getters...
+  resetStoreVM(this, this.state);
+};
+
+Store.prototype.unregisterModule = function unregisterModule (path) {
+    var this$1 = this;
+
+  if (typeof path === 'string') { path = [path]; }
+
+  if (true) {
+    assert(Array.isArray(path), "module path must be a string or an Array.");
+  }
+
+  this._modules.unregister(path);
+  this._withCommit(function () {
+    var parentState = getNestedState(this$1.state, path.slice(0, -1));
+    Vue.delete(parentState, path[path.length - 1]);
+  });
+  resetStore(this);
+};
+
+Store.prototype.hotUpdate = function hotUpdate (newOptions) {
+  this._modules.update(newOptions);
+  resetStore(this, true);
+};
+
+Store.prototype._withCommit = function _withCommit (fn) {
+  var committing = this._committing;
+  this._committing = true;
+  fn();
+  this._committing = committing;
+};
+
+Object.defineProperties( Store.prototype, prototypeAccessors$1 );
+
+function genericSubscribe (fn, subs) {
+  if (subs.indexOf(fn) < 0) {
+    subs.push(fn);
+  }
+  return function () {
+    var i = subs.indexOf(fn);
+    if (i > -1) {
+      subs.splice(i, 1);
+    }
+  }
+}
+
+function resetStore (store, hot) {
+  store._actions = Object.create(null);
+  store._mutations = Object.create(null);
+  store._wrappedGetters = Object.create(null);
+  store._modulesNamespaceMap = Object.create(null);
+  var state = store.state;
+  // init all modules
+  installModule(store, state, [], store._modules.root, true);
+  // reset vm
+  resetStoreVM(store, state, hot);
+}
+
+function resetStoreVM (store, state, hot) {
+  var oldVm = store._vm;
+
+  // bind store public getters
+  store.getters = {};
+  var wrappedGetters = store._wrappedGetters;
+  var computed = {};
+  forEachValue(wrappedGetters, function (fn, key) {
+    // use computed to leverage its lazy-caching mechanism
+    // direct inline function use will lead to closure preserving oldVm.
+    // using partial to return function with only arguments preserved in closure enviroment.
+    computed[key] = partial(fn, store);
+    Object.defineProperty(store.getters, key, {
+      get: function () { return store._vm[key]; },
+      enumerable: true // for local getters
+    });
+  });
+
+  // use a Vue instance to store the state tree
+  // suppress warnings just in case the user has added
+  // some funky global mixins
+  var silent = Vue.config.silent;
+  Vue.config.silent = true;
+  store._vm = new Vue({
+    data: {
+      $$state: state
+    },
+    computed: computed
+  });
+  Vue.config.silent = silent;
+
+  // enable strict mode for new vm
+  if (store.strict) {
+    enableStrictMode(store);
+  }
+
+  if (oldVm) {
+    if (hot) {
+      // dispatch changes in all subscribed watchers
+      // to force getter re-evaluation for hot reloading.
+      store._withCommit(function () {
+        oldVm._data.$$state = null;
+      });
+    }
+    Vue.nextTick(function () { return oldVm.$destroy(); });
+  }
+}
+
+function installModule (store, rootState, path, module, hot) {
+  var isRoot = !path.length;
+  var namespace = store._modules.getNamespace(path);
+
+  // register in namespace map
+  if (module.namespaced) {
+    store._modulesNamespaceMap[namespace] = module;
+  }
+
+  // set state
+  if (!isRoot && !hot) {
+    var parentState = getNestedState(rootState, path.slice(0, -1));
+    var moduleName = path[path.length - 1];
+    store._withCommit(function () {
+      Vue.set(parentState, moduleName, module.state);
+    });
+  }
+
+  var local = module.context = makeLocalContext(store, namespace, path);
+
+  module.forEachMutation(function (mutation, key) {
+    var namespacedType = namespace + key;
+    registerMutation(store, namespacedType, mutation, local);
+  });
+
+  module.forEachAction(function (action, key) {
+    var type = action.root ? key : namespace + key;
+    var handler = action.handler || action;
+    registerAction(store, type, handler, local);
+  });
+
+  module.forEachGetter(function (getter, key) {
+    var namespacedType = namespace + key;
+    registerGetter(store, namespacedType, getter, local);
+  });
+
+  module.forEachChild(function (child, key) {
+    installModule(store, rootState, path.concat(key), child, hot);
+  });
+}
+
+/**
+ * make localized dispatch, commit, getters and state
+ * if there is no namespace, just use root ones
+ */
+function makeLocalContext (store, namespace, path) {
+  var noNamespace = namespace === '';
+
+  var local = {
+    dispatch: noNamespace ? store.dispatch : function (_type, _payload, _options) {
+      var args = unifyObjectStyle(_type, _payload, _options);
+      var payload = args.payload;
+      var options = args.options;
+      var type = args.type;
+
+      if (!options || !options.root) {
+        type = namespace + type;
+        if ( true && !store._actions[type]) {
+          console.error(("[vuex] unknown local action type: " + (args.type) + ", global type: " + type));
+          return
+        }
+      }
+
+      return store.dispatch(type, payload)
+    },
+
+    commit: noNamespace ? store.commit : function (_type, _payload, _options) {
+      var args = unifyObjectStyle(_type, _payload, _options);
+      var payload = args.payload;
+      var options = args.options;
+      var type = args.type;
+
+      if (!options || !options.root) {
+        type = namespace + type;
+        if ( true && !store._mutations[type]) {
+          console.error(("[vuex] unknown local mutation type: " + (args.type) + ", global type: " + type));
+          return
+        }
+      }
+
+      store.commit(type, payload, options);
+    }
+  };
+
+  // getters and state object must be gotten lazily
+  // because they will be changed by vm update
+  Object.defineProperties(local, {
+    getters: {
+      get: noNamespace
+        ? function () { return store.getters; }
+        : function () { return makeLocalGetters(store, namespace); }
+    },
+    state: {
+      get: function () { return getNestedState(store.state, path); }
+    }
+  });
+
+  return local
+}
+
+function makeLocalGetters (store, namespace) {
+  var gettersProxy = {};
+
+  var splitPos = namespace.length;
+  Object.keys(store.getters).forEach(function (type) {
+    // skip if the target getter is not match this namespace
+    if (type.slice(0, splitPos) !== namespace) { return }
+
+    // extract local getter type
+    var localType = type.slice(splitPos);
+
+    // Add a port to the getters proxy.
+    // Define as getter property because
+    // we do not want to evaluate the getters in this time.
+    Object.defineProperty(gettersProxy, localType, {
+      get: function () { return store.getters[type]; },
+      enumerable: true
+    });
+  });
+
+  return gettersProxy
+}
+
+function registerMutation (store, type, handler, local) {
+  var entry = store._mutations[type] || (store._mutations[type] = []);
+  entry.push(function wrappedMutationHandler (payload) {
+    handler.call(store, local.state, payload);
+  });
+}
+
+function registerAction (store, type, handler, local) {
+  var entry = store._actions[type] || (store._actions[type] = []);
+  entry.push(function wrappedActionHandler (payload, cb) {
+    var res = handler.call(store, {
+      dispatch: local.dispatch,
+      commit: local.commit,
+      getters: local.getters,
+      state: local.state,
+      rootGetters: store.getters,
+      rootState: store.state
+    }, payload, cb);
+    if (!isPromise(res)) {
+      res = Promise.resolve(res);
+    }
+    if (store._devtoolHook) {
+      return res.catch(function (err) {
+        store._devtoolHook.emit('vuex:error', err);
+        throw err
+      })
+    } else {
+      return res
+    }
+  });
+}
+
+function registerGetter (store, type, rawGetter, local) {
+  if (store._wrappedGetters[type]) {
+    if (true) {
+      console.error(("[vuex] duplicate getter key: " + type));
+    }
+    return
+  }
+  store._wrappedGetters[type] = function wrappedGetter (store) {
+    return rawGetter(
+      local.state, // local state
+      local.getters, // local getters
+      store.state, // root state
+      store.getters // root getters
+    )
+  };
+}
+
+function enableStrictMode (store) {
+  store._vm.$watch(function () { return this._data.$$state }, function () {
+    if (true) {
+      assert(store._committing, "do not mutate vuex store state outside mutation handlers.");
+    }
+  }, { deep: true, sync: true });
+}
+
+function getNestedState (state, path) {
+  return path.length
+    ? path.reduce(function (state, key) { return state[key]; }, state)
+    : state
+}
+
+function unifyObjectStyle (type, payload, options) {
+  if (isObject(type) && type.type) {
+    options = payload;
+    payload = type;
+    type = type.type;
+  }
+
+  if (true) {
+    assert(typeof type === 'string', ("expects string as the type, but found " + (typeof type) + "."));
+  }
+
+  return { type: type, payload: payload, options: options }
+}
+
+function install (_Vue) {
+  if (Vue && _Vue === Vue) {
+    if (true) {
+      console.error(
+        '[vuex] already installed. Vue.use(Vuex) should be called only once.'
+      );
+    }
+    return
+  }
+  Vue = _Vue;
+  applyMixin(Vue);
+}
+
+/**
+ * Reduce the code which written in Vue.js for getting the state.
+ * @param {String} [namespace] - Module's namespace
+ * @param {Object|Array} states # Object's item can be a function which accept state and getters for param, you can do something for state and getters in it.
+ * @param {Object}
+ */
+var mapState = normalizeNamespace(function (namespace, states) {
+  var res = {};
+  normalizeMap(states).forEach(function (ref) {
+    var key = ref.key;
+    var val = ref.val;
+
+    res[key] = function mappedState () {
+      var state = this.$store.state;
+      var getters = this.$store.getters;
+      if (namespace) {
+        var module = getModuleByNamespace(this.$store, 'mapState', namespace);
+        if (!module) {
+          return
+        }
+        state = module.context.state;
+        getters = module.context.getters;
+      }
+      return typeof val === 'function'
+        ? val.call(this, state, getters)
+        : state[val]
+    };
+    // mark vuex getter for devtools
+    res[key].vuex = true;
+  });
+  return res
+});
+
+/**
+ * Reduce the code which written in Vue.js for committing the mutation
+ * @param {String} [namespace] - Module's namespace
+ * @param {Object|Array} mutations # Object's item can be a function which accept `commit` function as the first param, it can accept anthor params. You can commit mutation and do any other things in this function. specially, You need to pass anthor params from the mapped function.
+ * @return {Object}
+ */
+var mapMutations = normalizeNamespace(function (namespace, mutations) {
+  var res = {};
+  normalizeMap(mutations).forEach(function (ref) {
+    var key = ref.key;
+    var val = ref.val;
+
+    res[key] = function mappedMutation () {
+      var args = [], len = arguments.length;
+      while ( len-- ) args[ len ] = arguments[ len ];
+
+      // Get the commit method from store
+      var commit = this.$store.commit;
+      if (namespace) {
+        var module = getModuleByNamespace(this.$store, 'mapMutations', namespace);
+        if (!module) {
+          return
+        }
+        commit = module.context.commit;
+      }
+      return typeof val === 'function'
+        ? val.apply(this, [commit].concat(args))
+        : commit.apply(this.$store, [val].concat(args))
+    };
+  });
+  return res
+});
+
+/**
+ * Reduce the code which written in Vue.js for getting the getters
+ * @param {String} [namespace] - Module's namespace
+ * @param {Object|Array} getters
+ * @return {Object}
+ */
+var mapGetters = normalizeNamespace(function (namespace, getters) {
+  var res = {};
+  normalizeMap(getters).forEach(function (ref) {
+    var key = ref.key;
+    var val = ref.val;
+
+    // The namespace has been mutated by normalizeNamespace
+    val = namespace + val;
+    res[key] = function mappedGetter () {
+      if (namespace && !getModuleByNamespace(this.$store, 'mapGetters', namespace)) {
+        return
+      }
+      if ( true && !(val in this.$store.getters)) {
+        console.error(("[vuex] unknown getter: " + val));
+        return
+      }
+      return this.$store.getters[val]
+    };
+    // mark vuex getter for devtools
+    res[key].vuex = true;
+  });
+  return res
+});
+
+/**
+ * Reduce the code which written in Vue.js for dispatch the action
+ * @param {String} [namespace] - Module's namespace
+ * @param {Object|Array} actions # Object's item can be a function which accept `dispatch` function as the first param, it can accept anthor params. You can dispatch action and do any other things in this function. specially, You need to pass anthor params from the mapped function.
+ * @return {Object}
+ */
+var mapActions = normalizeNamespace(function (namespace, actions) {
+  var res = {};
+  normalizeMap(actions).forEach(function (ref) {
+    var key = ref.key;
+    var val = ref.val;
+
+    res[key] = function mappedAction () {
+      var args = [], len = arguments.length;
+      while ( len-- ) args[ len ] = arguments[ len ];
+
+      // get dispatch function from store
+      var dispatch = this.$store.dispatch;
+      if (namespace) {
+        var module = getModuleByNamespace(this.$store, 'mapActions', namespace);
+        if (!module) {
+          return
+        }
+        dispatch = module.context.dispatch;
+      }
+      return typeof val === 'function'
+        ? val.apply(this, [dispatch].concat(args))
+        : dispatch.apply(this.$store, [val].concat(args))
+    };
+  });
+  return res
+});
+
+/**
+ * Rebinding namespace param for mapXXX function in special scoped, and return them by simple object
+ * @param {String} namespace
+ * @return {Object}
+ */
+var createNamespacedHelpers = function (namespace) { return ({
+  mapState: mapState.bind(null, namespace),
+  mapGetters: mapGetters.bind(null, namespace),
+  mapMutations: mapMutations.bind(null, namespace),
+  mapActions: mapActions.bind(null, namespace)
+}); };
+
+/**
+ * Normalize the map
+ * normalizeMap([1, 2, 3]) => [ { key: 1, val: 1 }, { key: 2, val: 2 }, { key: 3, val: 3 } ]
+ * normalizeMap({a: 1, b: 2, c: 3}) => [ { key: 'a', val: 1 }, { key: 'b', val: 2 }, { key: 'c', val: 3 } ]
+ * @param {Array|Object} map
+ * @return {Object}
+ */
+function normalizeMap (map) {
+  return Array.isArray(map)
+    ? map.map(function (key) { return ({ key: key, val: key }); })
+    : Object.keys(map).map(function (key) { return ({ key: key, val: map[key] }); })
+}
+
+/**
+ * Return a function expect two param contains namespace and map. it will normalize the namespace and then the param's function will handle the new namespace and the map.
+ * @param {Function} fn
+ * @return {Function}
+ */
+function normalizeNamespace (fn) {
+  return function (namespace, map) {
+    if (typeof namespace !== 'string') {
+      map = namespace;
+      namespace = '';
+    } else if (namespace.charAt(namespace.length - 1) !== '/') {
+      namespace += '/';
+    }
+    return fn(namespace, map)
+  }
+}
+
+/**
+ * Search a special module from store by namespace. if module not exist, print error message.
+ * @param {Object} store
+ * @param {String} helper
+ * @param {String} namespace
+ * @return {Object}
+ */
+function getModuleByNamespace (store, helper, namespace) {
+  var module = store._modulesNamespaceMap[namespace];
+  if ( true && !module) {
+    console.error(("[vuex] module namespace not found in " + helper + "(): " + namespace));
+  }
+  return module
+}
+
+var index_esm = {
+  Store: Store,
+  install: install,
+  version: '3.1.1',
+  mapState: mapState,
+  mapMutations: mapMutations,
+  mapGetters: mapGetters,
+  mapActions: mapActions,
+  createNamespacedHelpers: createNamespacedHelpers
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (index_esm);
+
+
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js")))
+
+/***/ }),
+
 /***/ "./node_modules/webpack/buildin/global.js":
 /*!***********************************!*\
   !*** (webpack)/buildin/global.js ***!
@@ -82802,6 +84200,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var bootstrap_dist_css_bootstrap_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(bootstrap_dist_css_bootstrap_css__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var bootstrap_vue_dist_bootstrap_vue_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! bootstrap-vue/dist/bootstrap-vue.css */ "./node_modules/bootstrap-vue/dist/bootstrap-vue.css");
 /* harmony import */ var bootstrap_vue_dist_bootstrap_vue_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(bootstrap_vue_dist_bootstrap_vue_css__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./store */ "./resources/js/store.js");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -82815,8 +84215,12 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 
 
 
+
+
 vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(bootstrap_vue__WEBPACK_IMPORTED_MODULE_2__["default"]);
 vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_5__["default"]);
+var store = new vuex__WEBPACK_IMPORTED_MODULE_5__["default"].Store(_store__WEBPACK_IMPORTED_MODULE_6__["default"]);
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -82830,10 +84234,22 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
 vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('App', __webpack_require__(/*! ./App.vue */ "./resources/js/App.vue")["default"]);
 var routes = [{
   path: '/',
-  component: __webpack_require__(/*! ./components/Main.vue */ "./resources/js/components/Main.vue")["default"]
+  component: __webpack_require__(/*! ./components/Main.vue */ "./resources/js/components/Main.vue")["default"],
+  meta: {
+    requiresAuth: true
+  }
 }, {
   path: '/create-course',
-  component: __webpack_require__(/*! ./components/Create.vue */ "./resources/js/components/Create.vue")["default"]
+  component: __webpack_require__(/*! ./components/Create.vue */ "./resources/js/components/Create.vue")["default"],
+  meta: {
+    requiresAuth: true
+  }
+}, {
+  path: '/login',
+  component: __webpack_require__(/*! ./components/Login.vue */ "./resources/js/components/Login.vue")["default"],
+  meta: {
+    requiresVisitor: true
+  }
 }];
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -82844,9 +84260,47 @@ var routes = [{
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
   routes: routes
 });
+router.beforeEach(function (to, from, next) {
+  if (to.matched.some(function (record) {
+    return record.meta.requiresAuth;
+  })) {
+    // this route requires auth, check if logged in
+    // if not, redirect to login page.
+    if (!store.getters.loggedIn) {
+      next({
+        path: '/login',
+        query: {
+          redirect: to.fullPath
+        }
+      });
+    } else {
+      next();
+    }
+  } else if (to.matched.some(function (record) {
+    return record.meta.requiresVisitor;
+  })) {
+    // this route requires auth, check if logged in
+    // if not, redirect to login page.
+    if (store.getters.loggedIn) {
+      next({
+        path: '/',
+        query: {
+          redirect: to.fullPath
+        }
+      });
+    } else {
+      next();
+    }
+  }
+
+  {
+    next(); // make sure to always call next()!
+  }
+});
 var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
   el: '#app',
-  router: router
+  router: router,
+  store: store
 });
 
 /***/ }),
@@ -82991,6 +84445,93 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Create_vue_vue_type_template_id_67c71db2_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Create_vue_vue_type_template_id_67c71db2_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/Login.vue":
+/*!*******************************************!*\
+  !*** ./resources/js/components/Login.vue ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Login_vue_vue_type_template_id_6bdc8b8e_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Login.vue?vue&type=template&id=6bdc8b8e&scoped=true& */ "./resources/js/components/Login.vue?vue&type=template&id=6bdc8b8e&scoped=true&");
+/* harmony import */ var _Login_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Login.vue?vue&type=script&lang=js& */ "./resources/js/components/Login.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _Login_vue_vue_type_style_index_0_id_6bdc8b8e_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Login.vue?vue&type=style&index=0&id=6bdc8b8e&lang=scss&scoped=true& */ "./resources/js/components/Login.vue?vue&type=style&index=0&id=6bdc8b8e&lang=scss&scoped=true&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _Login_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Login_vue_vue_type_template_id_6bdc8b8e_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Login_vue_vue_type_template_id_6bdc8b8e_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "6bdc8b8e",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/Login.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/Login.vue?vue&type=script&lang=js&":
+/*!********************************************************************!*\
+  !*** ./resources/js/components/Login.vue?vue&type=script&lang=js& ***!
+  \********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Login_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./Login.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Login.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Login_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/Login.vue?vue&type=style&index=0&id=6bdc8b8e&lang=scss&scoped=true&":
+/*!*****************************************************************************************************!*\
+  !*** ./resources/js/components/Login.vue?vue&type=style&index=0&id=6bdc8b8e&lang=scss&scoped=true& ***!
+  \*****************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_lib_loader_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Login_vue_vue_type_style_index_0_id_6bdc8b8e_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader!../../../node_modules/css-loader!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--7-2!../../../node_modules/sass-loader/lib/loader.js??ref--7-3!../../../node_modules/vue-loader/lib??vue-loader-options!./Login.vue?vue&type=style&index=0&id=6bdc8b8e&lang=scss&scoped=true& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/lib/loader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Login.vue?vue&type=style&index=0&id=6bdc8b8e&lang=scss&scoped=true&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_lib_loader_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Login_vue_vue_type_style_index_0_id_6bdc8b8e_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_lib_loader_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Login_vue_vue_type_style_index_0_id_6bdc8b8e_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_lib_loader_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Login_vue_vue_type_style_index_0_id_6bdc8b8e_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_lib_loader_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Login_vue_vue_type_style_index_0_id_6bdc8b8e_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_lib_loader_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Login_vue_vue_type_style_index_0_id_6bdc8b8e_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./resources/js/components/Login.vue?vue&type=template&id=6bdc8b8e&scoped=true&":
+/*!**************************************************************************************!*\
+  !*** ./resources/js/components/Login.vue?vue&type=template&id=6bdc8b8e&scoped=true& ***!
+  \**************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Login_vue_vue_type_template_id_6bdc8b8e_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./Login.vue?vue&type=template&id=6bdc8b8e&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Login.vue?vue&type=template&id=6bdc8b8e&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Login_vue_vue_type_template_id_6bdc8b8e_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Login_vue_vue_type_template_id_6bdc8b8e_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -83220,6 +84761,116 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Sidebar_vue_vue_type_template_id_81fbb27e_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/img/black-linen.png":
+/*!******************************************!*\
+  !*** ./resources/js/img/black-linen.png ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/black-linen.png?d01731eecbeb065d79d807dacb623a93";
+
+/***/ }),
+
+/***/ "./resources/js/img/cubes.png":
+/*!************************************!*\
+  !*** ./resources/js/img/cubes.png ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/cubes.png?3c6467278a66af3216348e8588a69062";
+
+/***/ }),
+
+/***/ "./resources/js/store.js":
+/*!*******************************!*\
+  !*** ./resources/js/store.js ***!
+  \*******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  state: {
+    login: false,
+    paginaPrincipal: true,
+    infoUsuario: '',
+    token: localStorage.getItem('access_token') || null,
+    loginFailed: false,
+    infoEquipo: ''
+  },
+  mutations: {
+    infoUsuario: function infoUsuario(state, _infoUsuario) {
+      state.infoUsuario = _infoUsuario;
+    },
+    infoEquipo: function infoEquipo(state, _infoEquipo) {
+      state.infoEquipo = _infoEquipo;
+    },
+    login: function login(state, _login) {
+      state.login = _login;
+    },
+    paginaPrincipal: function paginaPrincipal(state, _paginaPrincipal) {
+      state.paginaPrincipal = _paginaPrincipal;
+    },
+    retrieveToken: function retrieveToken(state, token) {
+      state.token = token;
+    },
+    destroyToken: function destroyToken(state) {
+      state.token = null;
+    },
+    loginFailed: function loginFailed(state, _loginFailed) {
+      state.loginFailed = _loginFailed;
+    }
+  },
+  getters: {
+    loggedIn: function loggedIn(state) {
+      return state.token !== null;
+    }
+  },
+  actions: {
+    destroyToken: function destroyToken(context) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.defaults.headers.common['Authorization'] = 'Bearer ' + context.state.token;
+
+      if (context.getters.loggedIn) {
+        return new Promise(function (resolve, reject) {
+          axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/logout').then(function (response) {
+            localStorage.removeItem('access_token');
+            context.commit('destroyToken');
+            resolve(response);
+            /* console.log(response); */
+          });
+        });
+      }
+    },
+    retrieveToken: function retrieveToken(context, credentials) {
+      return new Promise(function (resolve, reject) {
+        context.commit('loginFailed', true);
+        axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/login', {
+          username: credentials.username,
+          password: credentials.password
+        }).then(function (response) {
+          var token = response.data.access_token;
+          localStorage.setItem('access_token', token);
+          context.commit('retrieveToken', token);
+          context.commit('loginFailed', false);
+          resolve(response);
+          /* console.log(response); */
+        })["catch"](function (error) {
+          alert('Usuario o contrasena incorrectos');
+          context.commit('loginFailed', false);
+        });
+      });
+    }
+  }
+});
 
 /***/ }),
 

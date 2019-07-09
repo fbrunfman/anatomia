@@ -1,5 +1,5 @@
 <template>
-    <div id="app">
+    <div id="app" v-bind:class="{'login' : login}">
         <div class="pagina-principal d-flex">
             <div class="main-page"><MainPage></MainPage></div>
         </div>
@@ -8,13 +8,17 @@
 
 <script>
 import MainPage from './components/Main-Page.vue'
-import Sidebar from './components/Sidebar.vue'
+
 export default {
     name: 'App',
     components: {
-    'MainPage': MainPage,
+    MainPage
+  },
+  computed: {
+    login() {
+        return this.$store.state.login
+    }
   }
-
 }
 </script>
 
@@ -24,6 +28,7 @@ export default {
 body {
     margin: 0;
     padding: 0;
+
   }
   #app {
     font-family: 'Anton', Arial, Helvetica, sans-serif;
@@ -32,9 +37,15 @@ body {
     color: #322F42;
     width: 100%;
     min-height: 100vh;
-    background-size: cover;
     overflow: hidden;
-  }
+    background-color: #67676794;
+    background-image: url('./img/cubes.png');
+    }
+
+    .login {
+        background-color: #337957 !important;
+        background-image: url('./img/black-linen.png');
+    }
 
 
 

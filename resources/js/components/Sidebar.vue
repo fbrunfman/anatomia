@@ -5,22 +5,28 @@
     </div>
     <div class="navigation-icons">
         <i class="fas fa-user"></i>
-        <i class="fas fa-home"></i>
-        <i class="fas fa-window-restore"></i>
-        <i class="fas fa-plus"></i>
+        <router-link to="/">
+            <i class="fas fa-home"></i>
+        </router-link>
+        <router-link to="create-course">
+            <i class="fas fa-plus"></i>
+        </router-link>
         <i class="fas fa-edit"></i>
         <i class="fas fa-headset"></i>
-        <i class="fas fa-power-off"></i>
+        <i class="fas fa-power-off" @click="logout"></i>
     </div>
     <div class="navigation-links">
       <transition-group name="fade">
-        <div v-show="showLink" key="1">Usuario</div>
-        <div v-show="showLink" key="2">Inicio</div>
-        <div v-show="showLink" key="3">Dashboard</div>
-        <div v-show="showLink" key="4">Crear cursos</div>
+        <div v-show="showLink" key="1">Perfil</div>
+        <router-link to="/" key="2">
+            <div v-show="showLink">Inicio</div>
+        </router-link>
+        <router-link to="create-course" key="4">
+            <div v-show="showLink">Crear cursos</div>
+        </router-link>
         <div v-show="showLink" key="5">Editar cursos</div>
         <div v-show="showLink" key="6">Soporte</div>
-        <div v-show="showLink" key="7">Logout</div>
+        <div v-show="showLink" key="7" @click="logout">Logout</div>
       </transition-group>
 
     </div>
@@ -49,6 +55,17 @@
             this.showLink = true;
           }, 300);
         }
+      },
+      logout() {
+        this.$store.dispatch('destroyToken')
+            .then(response => {
+            this.$router.push('/login')
+            this.$store.commit('login', true)
+            this.$store.commit('paginaPrincipal', false)
+        })
+        .catch((error) => {
+
+        })
       }
     }
   }
@@ -63,7 +80,6 @@
     padding: 10px;
     min-height: calc(100vh - 10px);
     background-color: #97b388;
-    border: solid #fff;
     color: #3d4c4a;
     border-width: 0 1px 0 0;
     z-index: 999;
@@ -135,5 +151,13 @@
   }
   .fade-enter, .fade-leave-to {
     transform: scale(0);
+  }
+
+  a {
+      color: inherit;
+      text-decoration: none;
+      :hover {
+          text-decoration: none;
+      }
   }
 </style>

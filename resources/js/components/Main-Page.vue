@@ -1,6 +1,6 @@
 <template>
     <div class="contenedor-general">
-        <div class="sidebar"><Sidebar /></div>
+        <div class="sidebar" v-if="!login && paginaPrincipal"><Sidebar /></div>
         <div class="container-body">
             <router-view></router-view>
         </div>
@@ -13,6 +13,17 @@ import Sidebar from './Sidebar.vue'
         name: 'MainPage',
         components: {
              Sidebar
+        },
+        computed: {
+            token() {
+                return this.$store.state.token
+            },
+            login() {
+                return this.$store.state.login
+            },
+            paginaPrincipal() {
+                return this.$store.state.paginaPrincipal
+            }
         },
         mounted() {
             console.log('Component mounted.')
@@ -32,6 +43,7 @@ import Sidebar from './Sidebar.vue'
     width: 100vw;
     display: grid;
     grid-template-columns: 70px auto;
+
 }
 
 .sidebar {
@@ -39,9 +51,6 @@ import Sidebar from './Sidebar.vue'
     height: calc(100vh - 10px);
 }
 
-.container-body {
-    display: flex;
-    justify-content: center;
-}
+
 
 </style>
